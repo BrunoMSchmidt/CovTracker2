@@ -5636,14 +5636,14 @@ INSERT INTO sintoma (nomsin, crisin) VALUES
 ('Outros sintomas', 1),
 ('Oximetria menor que 94%', 2);
 
-INSERT INTO bairro (nombai, cepbai, codcid) VALUES
-('Centro', 89906000, 4598),
-('Grápia', 89907000, 4598),
-('Estrela', 89900000, 4667),
-('Bairro nobre', 89874000, 4569),
-('Nova esperança', 89870000, 4607),
-('São Luiz', 89801-000, 4479),
-('Alvorada', 89896000 , 4540);
+INSERT INTO bairro (nombai, cepbai) VALUES
+('Centro', 89906000),
+('Grápia', 89907000),
+('Estrela', 89900000),
+('Bairro nobre', 89874000),
+('Nova esperança', 89870000),
+('São Luiz', 89801-000),
+('Alvorada', 89896000);
 
 INSERT INTO endereco (ruaend, numend, comend, codcid, codbai) VALUES
 ('Avenida das Aves', 65, null, 4598, 1),

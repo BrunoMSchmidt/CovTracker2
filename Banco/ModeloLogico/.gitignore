@@ -1,0 +1,6 @@
+*.lck
+*.bak
+*.lock
+
+.vpprefdata
+tmp
