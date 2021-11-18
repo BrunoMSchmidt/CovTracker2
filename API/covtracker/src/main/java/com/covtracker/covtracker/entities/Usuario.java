@@ -41,14 +41,13 @@ public class Usuario {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "cnpjemp", nullable = false)
-    private Empresa cnpjEmpresa;
+    private Empresa empresa;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "codtipusu", nullable = false)
-    private TipoUsuario codigoTipoUsuario;
+    private TipoUsuario tipoUsuario;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "codend", nullable = false)
-    private Endereco codigoEndereco;
-
+    private Endereco endereco;
 }

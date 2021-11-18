@@ -24,6 +24,6 @@ public class Teste {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "cpfusu", nullable = false)
-    private Usuario cpfusu;
+    private Usuario usuario;
 
 }
