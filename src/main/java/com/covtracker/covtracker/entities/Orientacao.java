@@ -1,7 +1,6 @@
 package com.covtracker.covtracker.entities;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -9,13 +8,18 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Orientacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codori", nullable = false)
-    private Integer id;
+    private Integer codigo;
 
     @Column(name = "desori", nullable = false)
     private String descricao;
 
+    public Orientacao(String descricao){
+        this.descricao = descricao;
+    }
 }

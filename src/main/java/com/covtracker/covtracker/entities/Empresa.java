@@ -32,8 +32,8 @@ public class Empresa {
     @Column(name = "areatuemp", length = 50)
     private String areaDeAtuacao;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "codend", nullable = false)
-    private Endereco codigoEndereco;
+    private Endereco endereco;
 
 }

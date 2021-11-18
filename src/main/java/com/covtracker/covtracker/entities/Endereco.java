@@ -26,10 +26,10 @@ public class Endereco {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "codcid", nullable = false)
-    private Cidade codigoCidade;
+    private Cidade cidade;
 
     @ManyToOne
     @JoinColumn(name = "codbai")
-    private Bairro codigoBairro;
+    private Bairro bairro;
 
 }
