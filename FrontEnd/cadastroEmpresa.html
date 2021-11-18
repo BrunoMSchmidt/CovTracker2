@@ -10,37 +10,43 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body> 
-    <div class="formulario">
-        <div class="titulo">
+    <div class="container-sm formulario">
+        <div class="titulo text-white">
             <h1>Cadastro de empresas</h1>
         </div>
-        <div class="mb-2">
-            <label for="nomfanemp" class="form-label">Nome fantasia:</label>
+        <div class="form-floating mb-2">
             <input type="text" class="form-control" id="nomfanemp">
+            <label for="nomfanemp">Nome fantasia:</label>
         </div>
 
         <div class="mb-2">
-            <label for="razsocemp" class="form-label">Razão social:</label>
+            <label for="razsocemp" class="form-label text-white">Razão social:</label>
             <input type="text" class="form-control" id="razsocemp">
         </div>
 
         <div class="mb-2">
-            <label for="cnpjemp" class="form-label">CPNJ:</label>
+            <label for="cnpjemp" class="form-label text-white">CPNJ:</label>
             <input type="text" class="form-control" id="cnpjemp" placeholder="00.000.000/0000-00">
         </div>
 
         <div class="mb-2">
-            <label for="telemp" class="form-label">Telefone:</label>
+            <label for="telemp" class="form-label text-white">Telefone:</label>
             <input type="text" class="form-control" id="telemp" placeholder="(00) 0000-0000">
         </div>
 
+        <div class="mb-2">Endereço:</div>
         <div class="mb-2">
-            <label for="endemp" class="form-label">Endereço:</label>
+            <label for="endemp" class="form-label text-white ">Rua:</label>
             <input type="text" class="form-control" id="endemp">
         </div>
 
         <div class="mb-2">
-            <label for="areatuemp" class="form-label">Area de atuação:</label>
+            <label for="endemp" class="form-label text-white">Número:</label>
+            <input type="text" class="form-control" id="endemp">
+        </div>
+
+        <div class="mb-2">
+            <label for="areatuemp" class="form-label text-white">Area de atuação:</label>
             <input type="text" class="form-control" id="areatuemp">
         </div>
         
@@ -48,7 +54,7 @@
 
     </div>
 
-    <div class="formulario" style="padding-bottom: 100px;">
+    <div class="container-sm formulario" style="padding-bottom: 100px;">
         <hr>
         <a class="btn btn-secondary" href="cadastroUsuario.html" role="button">Cadastrar usuário</a>
         <a class="btn btn-secondary" href="cadastroSintComorb.html" role="button">Cadastrar sintoma/comorbidade</a>
