@@ -1,0 +1,8 @@
+1. Funcionário realiza cadastro próprio
+2. Funcionário realiza cadastro de paciente
+3. Funcionário realiza cadastro de empresa
+4. Paciente e/ou funcionário consultam o perfil do paciente
+   1. Paciente e/ou funcionario emitem relatório da situação do paciente
+5. Funcionário adiciona e remove dados de cadastro e situação do paciente
+6. Funcionário consulta dados gerais
+   1. Funcionário emite relatório de acordo com filtros
