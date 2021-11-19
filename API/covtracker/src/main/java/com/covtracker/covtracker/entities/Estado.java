@@ -15,7 +15,7 @@ import javax.persistence.Table;
 public class Estado {
     @Id
     @Column(name = "sigest", nullable = false, length = 2)
-    private String id;
+    private String sigla;
 
     @Column(name = "nomest", nullable = false, length = 40)
     private String nome;

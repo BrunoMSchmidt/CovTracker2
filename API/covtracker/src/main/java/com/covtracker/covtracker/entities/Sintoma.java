@@ -21,6 +21,6 @@ public class Sintoma {
     private String nome;
 
     @Column(name = "crisin", nullable = false)
-    private Integer crisin;
+    private Integer criticidade;
 
 }
