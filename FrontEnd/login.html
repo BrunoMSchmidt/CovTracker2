@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - CovTracker2</title>
+
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        h1, h2, h3, h4, h5, h6, p {
+            margin: 0
+        }
+
+        body {
+            background-color: #23383b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #login-container {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        #cov-logo {
+            width: 350px;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        form {
+            background-color: #2c2c2c;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0px 1px 3px #93EC87;
+        }
+
+        form h1 {
+            color: #93EC87;
+            font-weight: 400;
+            text-decoration: underline;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            margin-top: 15px
+        }
+
+        .field label {
+            color: #93EC87;
+        }
+
+        .field input {
+            background-color: transparent;
+            border: 1px solid #3f3f3f;
+            border-radius: 3px;
+            padding: 8px;
+            color: white;
+        }
+
+        .field input:focus {
+            outline: 1px solid #93EC87;
+        }
+
+        form button {
+            width: 100%;
+            margin-top: 15px;
+            background-color: #93EC87;
+            border-radius: 5px;
+            padding: 8px;
+            font-size: 16px;
+            color: #3f3f3f;
+            transition: 200ms;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        form button:hover {
+            background-color: #3f3f3f;
+            color: #93EC87;
+            border: 1px solid #93EC87;
+        }
+
+        .error-message {
+            color: #ffffff;
+            margin-top: 1px;
+        }
+
+        .or {
+            margin-top: 15px;
+            color: white;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .or::before,
+        .or::after{
+            background-color: #fff;
+            content: "";
+            display: inline-block;
+            height: 1px;
+            position: relative;
+            vertical-align: middle;
+            width: 50%;
+        }
+
+        .or::before {
+            right: 0.5em;
+            margin-left: -50%;
+        }
+
+        .or::after {
+            left: 0.5em;
+            margin-right: -50%;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                display: grid;
+                align-items: start;
+            }
+
+            #login-container {
+                margin-top: 15vh;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div id="login-container">
+
+    <img src="assets/logo_transparent-CovTracker.png" alt="CovTracker Logo" id="cov-logo">
+
+    <form method="post" id="form">
+        <h1>Login</h1>
+        <div class="field">
+            <label for="login">Usuário</label>
+            <input type="text" id="login" required>
+            <p class="error-message" id="login-error-message"></p>
+        </div>
+        <div class="field">
+            <label for="password">Senha</label>
+            <input type="password" id="password" required>
+            <p class="error-message" id="password-error-message"></p>
+        </div>
+        <button type="submit" id="submit">Logar</button>
+        <div class="or">Ou</div>
+        <button type="button" onclick="redirectToCadastro()" title="Ir para a página de cadastro">Cadastrar-se</button>
+    </form>
+
+</div>
+
+<script>
+    const formValidation = {
+        login: {
+            valid: false,
+            errorMessage: ""
+        },
+        password: {
+            valid: false,
+            errorMessage: ""
+        }
+    };
+
+    let login = document.getElementById("login");
+    let loginErrorMessage = document.getElementById("login-error-message");
+    let password = document.getElementById("password");
+    let passwordErrorMessage = document.getElementById("password-error-message");
+    let form = document.getElementById("form");
+
+    login.addEventListener("input", event => {
+        const login = event.srcElement.value;
+        if (login.length < 7) {
+            formValidation.login.valid = false;
+            formValidation.login.errorMessage = "O usuário precisa ter no mínimo 7 caracteres";
+        } else {
+            formValidation.login.valid = true;
+            formValidation.login.errorMessage = "";
+        }
+
+        loginErrorMessage.innerText = formValidation.login.errorMessage;
+    })
+
+    password.addEventListener("input", event => {
+        const password = event.srcElement.value;
+        if (password.length < 8) {
+            formValidation.password.valid = false;
+            formValidation.password.errorMessage = "A senha precisa ter no mínimo 8 caracteres";
+        } else {
+            formValidation.password.valid = true;
+            formValidation.password.errorMessage = "";
+        }
+
+        passwordErrorMessage.innerText = formValidation.password.errorMessage;
+    })
+
+    form.addEventListener("submit", event => {
+        event.preventDefault();
+        let formIsValida = true;
+
+        Object.keys(formValidation).forEach(key => {
+            if (!formValidation[key].valid) {
+                formIsValida = false;
+            }
+        });
+
+        if (formIsValida) {
+            alert("Form válida");
+        } else {
+            alert("Form inválida");
+        }
+
+        console.log({login: login.value, password: password.value});
+    })
+
+    function redirectToCadastro(){
+        let url = this.window.location.href;
+        url = url.replace(url.split("/").reverse()[0], "cadastro.html");
+        this.window.location.href = url;
+    }
+</script>
+</body>
+</html>
