@@ -1,6 +1,8 @@
 package com.covtracker.covtracker.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -9,6 +11,8 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Cidade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

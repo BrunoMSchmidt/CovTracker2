@@ -19,10 +19,16 @@ import java.time.LocalDate;
 public class Usuario {
     @Id
     @Column(name = "cpfusu", nullable = false, precision = 11)
-    private BigInteger cpf;
+    private BigDecimal cpf;
 
     @Column(name = "nomusu", nullable = false, length = 60)
     private String nome;
+
+    @Column(name = "emausu", unique = true, length = 50)
+    private String email;
+
+    @Column(name = "senusu", nullable = false, length = 60)
+    private String senha;
 
     @Column(name = "datnasusu")
     private LocalDate dataNascimento;

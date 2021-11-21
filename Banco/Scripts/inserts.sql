@@ -5671,23 +5671,23 @@ INSERT INTO empresa (cnpjemp, nomfanemp, razsocemp, telemp, emaemp, areatuemp, c
 (12345678900007, 'Mario Eletrônicos', 'Mario Eletrônicos Lmtd', 49123450007, 'MarioEletrônicos@email.com', 'TI', 13),
 (12345678900008, 'Vidraçaria Vidros', 'Vidraçaria Vidros Lmtd', 49123450008, 'VidraçariaVidros@email.com', 'Vidros', 14);
 
-INSERT INTO usuario (cpfusu, nomusu, datnasusu, sexusu, pesusu, altusu, funempusu, cnpjemp, codtipusu, codend) VALUES
-(12345678901, 'Andreia Silva', '05/06/1955', 'F', 60, 1.71, 'Gerente', 12345678900001, 2, 1),
-(12345678902, 'Mario Augusto', '05/07/1962', 'M', 70, 1.79, 'Supervisor', 12345678900002, 2, 2),
-(12345678903, 'Carolina Cunha', '05/08/1979', 'F', 70, 1.74, 'Contadora', 12345678900003, 2, 3),
-(12345678904, 'Joao das Dores', '05/09/1986', 'M', 80, 1.84, 'Empacotador', 12345678900004, 2, 4),
-(12345678905, 'Joana Fonseca', '05/10/1991', 'F', 80, 1.68, 'Motorista', 12345678900005, 2, 5),
-(12345678906, 'Bruno Abreu', '05/11/1997', 'M', 90, 1.96, 'Supervisor', 12345678900006, 2, 6),
-(12345678907, 'Bruna de Tal', '05/12/2003', 'F', 90, 1.66, 'Estagiária', 12345678900007, 2, 7),
-(12345678908, 'Lucas de Tal', '05/01/2000', 'M', 100, 1.80, 'Motorista', 12345678900008, 2, 8),
-(12345678909, 'Ana de Tal', '05/02/1995', 'F', 100, 1.55, 'Gerente', 12345678900001, 2, 9),
-(12345678910, 'Gustavo de Tal', '05/03/1991', 'M', 75, 1.76, 'Supervisor', 12345678900002, 2, 10),
-(12345678911, 'Maria de Tal', '05/04/1944', 'F', 55, 1.79, 'Motorista', 12345678900003, 2, 11),
-(12345678912, 'Fulano de Tal', '05/05/1977', 'M', 69, 1.85, 'Estágiario', 12345678900004, 2, 12),
-(12345678913, 'Ciclana de Tal', '05/06/1988', 'F', 49, 1.84, 'Analista', 12345678900005, 2, 13),
-(12345678914, 'Hugo Paulo', '05/07/1999', 'M', 54, 1.62, 'Supervisor', 12345678900006, 2, 14),
-(12345678915, 'Paula de Tal', '05/08/2001', 'F', 73, 1.77, 'Motorista', 12345678900007, 2, 1),
-(12345678916, 'Ciclano da Silva', '06/02/1995', 'M', 75, 1.88, 'Gerente', 12345678900007, 2, 9);
+INSERT INTO usuario (emausu, senusu, cpfusu, nomusu, datnasusu, sexusu, pesusu, altusu, funempusu, cnpjemp, codtipusu, codend) VALUES
+('andreia@email.com', 'senha', 12345678901, 'Andreia Silva', '05/06/1955', 'F', 60, 1.71, 'Gerente', 12345678900001, 2, 1),
+('mario@email.com', 'senha', 12345678902, 'Mario Augusto', '05/07/1962', 'M', 70, 1.79, 'Supervisor', 12345678900002, 2, 2),
+('carolina@email.com', 'senha', 12345678903, 'Carolina Cunha', '05/08/1979', 'F', 70, 1.74, 'Contadora', 12345678900003, 2, 3),
+('joao@email.com', 'senha', 12345678904, 'Joao das Dores', '05/09/1986', 'M', 80, 1.84, 'Empacotador', 12345678900004, 2, 4),
+('joana@email.com', 'senha', 12345678905, 'Joana Fonseca', '05/10/1991', 'F', 80, 1.68, 'Motorista', 12345678900005, 2, 5),
+('bruno@email.com', 'senha', 12345678906, 'Bruno Abreu', '05/11/1997', 'M', 90, 1.96, 'Supervisor', 12345678900006, 2, 6),
+('bruna@email.com', 'senha', 12345678907, 'Bruna de Tal', '05/12/2003', 'F', 90, 1.66, 'Estagiária', 12345678900007, 2, 7),
+('lucas@email.com', 'senha', 12345678908, 'Lucas de Tal', '05/01/2000', 'M', 100, 1.80, 'Motorista', 12345678900008, 2, 8),
+('ana@email.com', 'senha', 12345678909, 'Ana de Tal', '05/02/1995', 'F', 100, 1.55, 'Gerente', 12345678900001, 2, 9),
+('gustavo@email.com', 'senha', 12345678910, 'Gustavo de Tal', '05/03/1991', 'M', 75, 1.76, 'Supervisor', 12345678900002, 2, 10),
+('maria@email.com', 'senha', 12345678911, 'Maria de Tal', '05/04/1944', 'F', 55, 1.79, 'Motorista', 12345678900003, 2, 11),
+('fulano@email.com', 'senha', 12345678912, 'Fulano de Tal', '05/05/1977', 'M', 69, 1.85, 'Estágiario', 12345678900004, 2, 12),
+('ciclana@email.com', 'senha', 12345678913, 'Ciclana de Tal', '05/06/1988', 'F', 49, 1.84, 'Analista', 12345678900005, 2, 13),
+('hugo@email.com', 'senha', 12345678914, 'Hugo Paulo', '05/07/1999', 'M', 54, 1.62, 'Supervisor', 12345678900006, 2, 14),
+('paula@email.com', 'senha', 12345678915, 'Paula de Tal', '05/08/2001', 'F', 73, 1.77, 'Motorista', 12345678900007, 2, 1),
+('ciclano@email.com', 'senha', 12345678916, 'Ciclano da Silva', '06/02/1995', 'M', 75, 1.88, 'Gerente', 12345678900007, 2, 9);
 
 INSERT INTO usuario_telefone (cpfusu, telpac) VALUES
 (12345678901 , 49123450101),
