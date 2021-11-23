@@ -4,62 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CovTracker</title>
+    <title>Cadastro de empresas - CovTracker</title>
 
     <link href="style.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="cadastroEmpresa.js" defer></script>
-</head>
+  </head>
 <body> 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><img src="assets/logo_transparent-CovTracker.png" id="logo"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="sobrenos.html">Sobre nós</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        Cadastros
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="cadastroUsuario.html">Usuário</a></li>
-                        <li><a class="dropdown-item" href="cadastroEmpresa.html">Empresa</a></li>
-                        <li><a class="dropdown-item" href="cadastroSintoma.html">Sintoma</a></li>
-                        <li><a class="dropdown-item" href="cadastroComorbidade.html">Comorbidade</a></li>
-                        <li><a class="dropdown-item" href="cadastroVacina.html">Vacina</a></li>
-                    </ul>
-                </li>
-            </ul>
-            </div>
-
-        <div class="d-flex nav-link">
-            Nome do usuário
-        </div>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: transparent; border: none;">
-                <a href="#"><img src="assets/user.png" alt="Imagem usuário" id="img-user"></a>
-            </button>
-            <ul class="dropdown-menu-dark dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="dadosUsuario.html">Meus dados</a></li>
-                <li><a class="dropdown-item" onclick="deslogin()">Deslogin</a></li>
-            </ul>
-        </div>
-
-          
-        
-        </div>
-    </nav>
-
     <form class="container" method="POST" id="form-cadastro-empresas">
         <div class="container-sm formulario">
           <div class="titulo text-white">
@@ -164,15 +115,15 @@
           <button class="btn btn-primary" type="submit">Cadastrar empresa</button>
     
         </div>
+    
+        <div class="container-sm formulario" style="padding-bottom: 100px;">
+            <hr class="text-white">
+            <a class="btn btn-secondary" href="cadastroUsuario.html" role="button">Cadastrar usuário</a>
+            <a class="btn btn-secondary" href="cadastroSintComorb.html" role="button">Cadastrar sintoma/comorbidade</a>
+            <a class="btn btn-secondary" href="cadastroVacina.html" role="button">Cadastrar vacina</a>
+        </div>
     </form>
 
-
-      <script>
-        $("#form-cadastro-empresas").submit(event => {
-          event.preventDefault();
-          console.log($("#form-cadastro-empresas").serializeArray());
-        })
-      </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
