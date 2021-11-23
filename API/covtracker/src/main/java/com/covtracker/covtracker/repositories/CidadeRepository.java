@@ -8,5 +8,5 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface CidadeRepository extends JpaRepository<Cidade, Integer> {
-
+    Cidade[] findByEstadoSigla(String sigla);
 }

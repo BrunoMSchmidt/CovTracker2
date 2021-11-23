@@ -24,6 +24,6 @@ public class Cidade {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "sigest", nullable = false)
-    private Estado siglaEstado;
+    private Estado estado;
 
 }
