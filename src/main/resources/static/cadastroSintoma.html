@@ -59,31 +59,33 @@
         </div>
     </nav>
 
-    <form class="container" method="POST" id="form-cadastro-vacinas">
-        <div class="container-sm formulario" >
+    <form class="container" method="POST" id="form-cadastro-sintomas">
+        <div class="container-sm formulario">
             <div class="titulo text-white">
-                <h1>Cadastro de vacinas</h1>
+                <h1>Cadastro de sintomas</h1>
             </div>
+            <div class="mb-2">
+                <label for="nomfanemp" class="form-label">Nome do sintoma:</label>
+                <input type="text" class="form-control" id="nomfanemp">
+            </div>
+    
+            <div class="mb-2">Criticidade:</div>
+            <select class="form-select mb-2" aria-label="Default select example">
+                <option selected>Selecione uma opção</option>
+                <option value="1">Baixa</option>
+                <option value="2">Média</option>
+                <option value="3">Alta</option>
+            </select>
+    
             
-            <div class="mb-2">
-                <label for="marvac" class="form-label">Marca:</label>
-                <input type="text" class="form-control" id="marvac">
-            </div>
-
-            <div class="mb-2">
-                <label for="nomvac" class="form-label">Nome:</label>
-                <input type="text" class="form-control" id="nomvac">
-            </div>
-
-            <div class="mb-2">
-                <label for="quadosvac" class="form-label">Quantidade de doses para imunização completa:</label>
-                <input type="number" class="form-control" id="quadosvac">
-            </div>
-            
-            <button class="btn btn-primary" type="submit">Cadastrar vacina</button>
-
+            <button class="btn btn-primary" type="submit">Cadastrar sintoma</button>
+    
         </div>
     </form>
+    
+   
+    
+
 
       <script>
         $("#form-cadastro-empresas").submit(event => {
