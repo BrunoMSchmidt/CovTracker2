@@ -26,10 +26,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sobre nós</a>
+                    <a class="nav-link" href="sobrenos.html">Sobre nós</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -37,23 +37,32 @@
                         Cadastros
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Usuário</a></li>
-                        <li><a class="dropdown-item" href="#">Empresa</a></li>
-                        <li><a class="dropdown-item" href="#">Sintoma</a></li>
-                        <li><a class="dropdown-item" href="#">Comorbidade</a></li>
-                        <li><a class="dropdown-item" href="#">Vacina</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="cadastroUsuario.html">Usuário</a></li>
+                        <li><a class="dropdown-item" href="cadastroEmpresa.html">Empresa</a></li>
+                        <li><a class="dropdown-item" href="cadastroSintComorb.html">Sintoma</a></li>
+                        <li><a class="dropdown-item" href="cadastroSintComorb.html">Comorbidade</a></li>
+                        <li><a class="dropdown-item" href="cadastroVacina.html">Vacina</a></li>
                     </ul>
                 </li>
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit" style="color: #94ed8888;">Search</button>
-            </form>
+            
         </div>
+
+        <div class="d-flex nav-link">
+            Nome do usuário
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: transparent; border: none;">
+                <a href="#"><img src="assets/user.png" alt="Imagem usuário" id="img-user"></a>
+            </button>
+            <ul class="dropdown-menu-dark dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="dadosUsuario.html">Meus dados</a></li>
+                <li><a class="dropdown-item" onclick="deslogin()">Deslogin</a></li>
+            </ul>
+          </div>
+
+          
+        
     </div>
 </nav>
 
