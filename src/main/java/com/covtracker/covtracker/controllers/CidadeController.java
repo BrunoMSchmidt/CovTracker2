@@ -27,6 +27,11 @@ public class CidadeController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping(path = "/cidadeByEstado/{sigla}")
+    public Cidade[] getByEstado(@PathVariable String sigla){
+        return this.cidadeRepository.findByEstadoSigla(sigla.toUpperCase());
+    }
+
     @PostMapping(path = "/cidade")
     public Cidade create(@RequestBody Cidade cidade){
         return cidadeRepository.save(cidade);
@@ -37,7 +42,7 @@ public class CidadeController {
         return cidadeRepository.findById(id)
                 .map(registro -> {
                     registro.setNome(cidade.getNome());
-                    registro.setSiglaEstado(cidade.getSiglaEstado());
+                    registro.setEstado(cidade.getEstado());
                     Cidade cidadeAtualizado = cidadeRepository.save(registro);
                     return ResponseEntity.ok().body(cidadeAtualizado);
                 }).orElse(ResponseEntity.notFound().build());
