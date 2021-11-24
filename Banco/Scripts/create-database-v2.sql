@@ -142,17 +142,16 @@ CREATE TABLE vacina (
 COMMENT ON TABLE vacina IS 'Cadastro da vacina';
 COMMENT ON COLUMN vacina.codvac IS 'C�digo da vacina';
 COMMENT ON COLUMN vacina.nomvac IS 'Nome da vacina';
-CREATE TABLE vacinacao (
-  codvaccao SERIAL NOT NULL, 
-  datvaccao date NOT NULL, 
-  dosvaccao int4 NOT NULL, 
+CREATE TABLE usuario_vacina (
+  codusuvac serial not null,
+  datusuvac date NOT NULL, 
+  dosusuvac int4 NOT NULL, 
   codvac    int4 NOT NULL, 
   cpfusu    numeric(11, 0) NOT NULL, 
-  PRIMARY KEY (codvaccao));
-COMMENT ON TABLE vacinacao IS 'Cadastro da vacina��o';
-COMMENT ON COLUMN vacinacao.codvaccao IS 'C�digo da vacina��o';
-COMMENT ON COLUMN vacinacao.datvaccao IS 'Data da vacina��o';
-COMMENT ON COLUMN vacinacao.dosvaccao IS 'Dose da vacina��o (1 ou 2)';
+  PRIMARY KEY (codusuvac));
+COMMENT ON TABLE usuario_vacina IS 'Cadastro da vacina��o';
+COMMENT ON COLUMN usuario_vacina.datusuvac IS 'Data da vacina��o';
+COMMENT ON COLUMN usuario_vacina.dosusuvac IS 'Dose da vacina��o (1 ou 2)';
 ALTER TABLE usuario_sintoma ADD CONSTRAINT ususin_codsin_fk FOREIGN KEY (codsin) REFERENCES sintoma (codsin);
 ALTER TABLE usuario_comorbidade ADD CONSTRAINT usucom_codcom_fk FOREIGN KEY (codcom) REFERENCES comorbidade (codcom);
 ALTER TABLE usuario_telefone ADD CONSTRAINT usutel_cpfusu_fk FOREIGN KEY (cpfusu) REFERENCES usuario (cpfusu);
@@ -164,8 +163,8 @@ ALTER TABLE cidade ADD CONSTRAINT cid_sigest_fk FOREIGN KEY (sigest) REFERENCES 
 ALTER TABLE usuario ADD CONSTRAINT usu_codend_fk FOREIGN KEY (codend) REFERENCES endereco (codend);
 ALTER TABLE empresa ADD CONSTRAINT emp_codend_fk FOREIGN KEY (codend) REFERENCES endereco (codend);
 ALTER TABLE teste ADD CONSTRAINT tes_cpfusu_fk FOREIGN KEY (cpfusu) REFERENCES usuario (cpfusu);
-ALTER TABLE vacinacao ADD CONSTRAINT vac_codvac_fk FOREIGN KEY (codvac) REFERENCES vacina (codvac);
-ALTER TABLE vacinacao ADD CONSTRAINT vac_cpfusu_fk FOREIGN KEY (cpfusu) REFERENCES usuario (cpfusu);
+ALTER TABLE usuario_vacina ADD CONSTRAINT vac_codvac_fk FOREIGN KEY (codvac) REFERENCES vacina (codvac);
+ALTER TABLE usuario_vacina ADD CONSTRAINT vac_cpfusu_fk FOREIGN KEY (cpfusu) REFERENCES usuario (cpfusu);
 ALTER TABLE endereco ADD CONSTRAINT end_codcid_fk FOREIGN KEY (codcid) REFERENCES cidade (codcid);
 ALTER TABLE endereco ADD CONSTRAINT end_codbai_fk FOREIGN KEY (codbai) REFERENCES bairro (codbai);
 

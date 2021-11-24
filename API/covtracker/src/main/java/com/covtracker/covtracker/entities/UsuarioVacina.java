@@ -24,10 +24,10 @@ public class UsuarioVacina {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "codvac", nullable = false)
-    private Vacina codvac;
+    private Vacina vacina;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "cpfusu", nullable = false)
-    private Usuario cpfusu;
+    private Usuario usuario;
 
 }

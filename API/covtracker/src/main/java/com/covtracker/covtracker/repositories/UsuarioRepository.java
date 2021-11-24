@@ -6,8 +6,10 @@ import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.List;
 
 @Repository()
 public interface UsuarioRepository extends JpaRepository<Usuario, BigDecimal> {
     Usuario findByEmail(String email);
+    List<Usuario> findByNomeContaining(String texto);
 }

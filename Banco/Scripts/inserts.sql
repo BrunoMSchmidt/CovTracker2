@@ -5727,7 +5727,7 @@ INSERT INTO teste (restes, dattes, cpfusu) VALUES
 ('P', '08/06/2021', 12345678909),
 ('P', '14/06/2021', 12345678916);
 
-INSERT INTO vacinacao (datvaccao, dosvaccao, codvac, cpfusu)  VALUES
+INSERT INTO usuario_vacina (datusuvac, dosusuvac, codvac, cpfusu)  VALUES
 ('14/06/2021', 1, 1, 12345678901),
 ('14/06/2021', 1, 2, 12345678904),
 ('14/06/2021', 1, 3, 12345678907),
