@@ -5,7 +5,6 @@ import com.covtracker.covtracker.repositories.UsuarioRepository;
 import com.covtracker.covtracker.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
@@ -31,6 +30,11 @@ public class UsuarioController {
         return this.usuarioRepository.findById(cpf)
                 .map(usuario -> ResponseEntity.ok().body(usuario))
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping(path = "/usuarios/findByName/{name}")
+    public List<Usuario> getByCpf(@PathVariable() String name) {
+        return this.usuarioRepository.findByNomeContaining(name);
     }
 
     @PostMapping(path = "/usuario")
