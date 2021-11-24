@@ -11,8 +11,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body> 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" >
+        <div class="container-fluid ">
             <a class="navbar-brand" href="index.html"><img src="assets/logo_transparent-CovTracker.png" id="logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -33,10 +33,16 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="cadastroUsuario.html">Usuário</a></li>
                         <li><a class="dropdown-item" href="cadastroEmpresa.html">Empresa</a></li>
-                        <li><a class="dropdown-item" href="cadastroSintoma.html">Sintoma</a></li>
-                        <li><a class="dropdown-item" href="cadastroComorbidade.html">Comorbidade</a></li>
-                        <li><a class="dropdown-item" href="cadastroVacina.html">Vacina</a></li>
                     </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                     data-bs-toggle="dropdown" aria-expanded="false">
+                      Dados
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="usuarios.html">Usuários</a></li>
+                  </ul>
                 </li>
             </ul>
             </div>
