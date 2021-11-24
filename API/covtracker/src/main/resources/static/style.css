@@ -24,6 +24,15 @@
     color: #94ed8888 !important;
 }
 
+.btn-primary{
+    background-color: #94ed8888 !important;
+    border-color: #94ed883f !important;
+}
+
+.btn-lg:focus {
+    box-shadow: 0px 0px 15px  #94ed883f !important;
+  }
+
 .container{
     box-shadow: 0px 0px 3px #ccc;
     min-height: auto;

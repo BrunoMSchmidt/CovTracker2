@@ -12,7 +12,7 @@
     <script src="cadastroEmpresa.js" defer></script>
 </head>
 <body> 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html"><img src="assets/logo_transparent-CovTracker.png" id="logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,11 +34,17 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="cadastroUsuario.html">Usuário</a></li>
                         <li><a class="dropdown-item" href="cadastroEmpresa.html">Empresa</a></li>
-                        <li><a class="dropdown-item" href="cadastroSintoma.html">Sintoma</a></li>
-                        <li><a class="dropdown-item" href="cadastroComorbidade.html">Comorbidade</a></li>
-                        <li><a class="dropdown-item" href="cadastroVacina.html">Vacina</a></li>
                     </ul>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Dados
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="usuarios.html">Usuários</a></li>
+                    </ul>
+                  </li>
             </ul>
             </div>
 
@@ -64,9 +70,11 @@
         <div class="container-sm formulario">
           <div class="titulo text-white">
               <h1>Cadastro de empresas</h1>
+              <hr>
           </div>
 
           <div>
+            <h4 class="text-white">Dados cadastrais</h4>
             <div class="row">
               <div class="col">
                 <div class="form-floating mb-2">
@@ -108,6 +116,16 @@
             <div class="row">
                 <div class="col">
                     <div class="form-floating mb-2">
+                        <input type="text" class="form-control" name="areaAtuacao" placeholder=" ">
+                        <label for="areaAtuacao">Área de atuação:</label>
+                      </div>
+                </div>
+            </div>
+            <hr class="text-white">
+            <h4 class="text-white">Endereço</h4>
+            <div class="row">
+                <div class="col">
+                    <div class="form-floating mb-2">
                         <input type="text" class="form-control" name="rua" placeholder=" ">
                         <label for="rua">Rua:</label>
                     </div>
@@ -137,7 +155,7 @@
                 <div class="col">
                     <div class="form-floating mb-2" >
                         <select id="estado" class="form-select" name="estado" aria-label="Floating label select example">
-
+                        <option selected>Estado:</option>
                         </select>
                         <label for="estado">Selecione um estado:</label>
                       </div>
@@ -145,23 +163,17 @@
                 <div class="col-9">
                     <div class="form-floating mb-2" >
                         <select id="cidade" class="form-select" name="cidade" aria-label="Floating label select example" aria-placeholder="lala">
-                  
+                        <option selected>Cidade:</option>
                         </select>
                         <label for="cidade">Selecione uma cidade:</label>
                       </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-floating mb-2">
-                        <input type="text" class="form-control" name="areaAtuacao" placeholder=" ">
-                        <label for="areaAtuacao">Área de atuação:</label>
-                      </div>
-                </div>
-            </div>
+            <hr class="text-white">
+            
           </div>
   
-          <button class="btn btn-primary" type="submit">Cadastrar empresa</button>
+          <button class="btn-lg btn-primary" type="submit">Cadastrar empresa</button>
     
         </div>
     </form>
