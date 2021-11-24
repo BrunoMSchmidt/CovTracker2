@@ -107,8 +107,8 @@
 		if (nomeB !=null && nomeB.trim()!=''){
 			$.ajax({ 
 				method : "GET", 
-				url : "buscarpornome", 
-				data : "nome=" + nomeB,
+				url : "usuario/findByName/" + nomeB, 
+				// data : "nome=" + nomeB,
 				success : 
 				function(response){
 					$("#tabelaresultados > tbody > tr").remove();
