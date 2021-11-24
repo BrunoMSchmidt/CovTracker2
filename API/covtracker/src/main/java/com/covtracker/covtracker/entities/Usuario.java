@@ -7,8 +7,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Set;
 
 @Table(name = "usuario")
 @Entity
@@ -56,4 +57,5 @@ public class Usuario {
     @ManyToOne(optional = false)
     @JoinColumn(name = "codend", nullable = false)
     private Endereco endereco;
+
 }
