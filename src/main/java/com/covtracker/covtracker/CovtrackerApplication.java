@@ -1,9 +1,5 @@
 package com.covtracker.covtracker;
 
-import com.covtracker.covtracker.entities.Cidade;
-import com.covtracker.covtracker.entities.Empresa;
-import com.covtracker.covtracker.entities.Endereco;
-import com.covtracker.covtracker.entities.Usuario;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

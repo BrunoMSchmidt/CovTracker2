@@ -6,28 +6,28 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Table(name = "vacinacao")
+@Table(name = "usuario_vacina")
 @Entity
 @Getter
 @Setter
-public class Vacinacao {
+public class UsuarioVacina {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "codvaccao", nullable = false)
+    @Column(name = "codusuvac", nullable = false)
     private Integer id;
 
-    @Column(name = "datvaccao", nullable = false)
-    private LocalDate data;
+    @Column(name = "datusuvac", nullable = false)
+    private LocalDate datusuvac;
 
-    @Column(name = "dosvaccao", nullable = false)
-    private Integer dose;
+    @Column(name = "dosusuvac", nullable = false)
+    private Integer dosusuvac;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "codvac", nullable = false)
-    private Vacina vacina;
+    private Vacina codvac;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "cpfusu", nullable = false)
-    private Usuario usuario;
+    private Usuario cpfusu;
 
 }
