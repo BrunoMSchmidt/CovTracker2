@@ -96,40 +96,40 @@
     </form>
 
 
-      <script>
+    <script>
         $("#form-cadastro-empresas").submit(event => {
           event.preventDefault();
           console.log($("#form-cadastro-empresas").serializeArray());
         })
 
         function pesquisarUsuario(){
-		var nomeB = $("#nomeBusca").val();
-		if (nomeB !=null && nomeB.trim()!=''){
-			$.ajax({ 
-				method : "GET", 
-				url : "usuario/findByName/" + nomeB, 
-				// data : "nome=" + nomeB,
-				success : 
-				function(response){
-					$("#tabelaresultados > tbody > tr").remove();
-					for (var i = 0; i < response.length; i++){
-						$('#tabelaresultados > tbody').append('<tr><td>' + 
-								response[i].nome + '</td><td>' + 
-								response[i].cpf + '</td><td>' +		
-                                response[i].email + '</td><td>' +	
-                                response[i].sexo + '</td><td>' +
-                                response[i].peso + '</td><td>' +
-                                response[i].altura + '</td><td>'
-                        )
-					}
-				}
-			}).fail(function (xhr, status, errorThrown){ 
-				alert("Erro ao buscar usuário: " + xhr.responseText); 
-			}); 
-				
-		}		
-	}
-      </script>
+		    var nomeB = $("#nomeBusca").val();
+		    if (nomeB !=null && nomeB.trim()!=''){
+                $.ajax({ 
+                    method : "GET", 
+                    url : "/api/usuarios/findByName/" + nomeB, 
+                    // data : "nome=" + nomeB,
+                    success : 
+                    function(response){
+                        $("#tabelaresultados > tbody > tr").remove();
+                        for (var i = 0; i < response.length; i++){
+                            $('#tabelaresultados > tbody').append('<tr><td>' + 
+                                    response[i].nome + '</td><td>' + 
+                                    response[i].cpf + '</td><td>' +		
+                                    response[i].email + '</td><td>' +	
+                                    response[i].sexo + '</td><td>' +
+                                    response[i].peso + '</td><td>' +
+                                    response[i].altura + '</td><td>'
+                            )
+                        }
+                    }
+                }).fail(function (xhr, status, errorThrown){ 
+                    alert("Erro ao buscar usuário: " + xhr.responseText); 
+                }); 
+                    
+            }		
+	    }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
