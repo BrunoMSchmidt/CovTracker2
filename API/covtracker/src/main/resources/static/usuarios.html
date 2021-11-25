@@ -115,13 +115,13 @@
                     function(response){
                         $("#tabelaresultados > tbody > tr").remove();
                         for (var i = 0; i < response.length; i++){
-                            $('#tabelaresultados > tbody').append('<div class="text-white"><tr><td>' + 
+                            $('#tabelaresultados > tbody').append('<tr><td>' + 
                                     response[i].nome + '</td><td>' + 
                                     response[i].cpf + '</td><td>' +		
                                     response[i].email + '</td><td>' +	
                                     response[i].sexo + '</td><td>' +
                                     response[i].peso + '</td><td>' +
-                                    response[i].altura + '</td></div>'
+                                    response[i].altura + '</td><td>'
                             )
                         }
                     }
