@@ -85,7 +85,7 @@
                         </tr>
                     </thead>
                     <tbody >
-                        <tr id="dadosUsuario" class="text-white">
+                        <tr id="dadosUsuario" >
                             
                         </tr>
                     </tbody>
@@ -100,14 +100,14 @@
             const dadosUsuario = document.querySelector('#dadosUsuario')
 
             dadosUsuario.innerHTML = `
-                <td>${usuario.nome}</td>
-                <td>${usuario.cpf}</td>
-                <td>${usuario.email}</td>
-                <td>${usuario.sexo}</td>
-                <td>${usuario.peso}</td>
-                <td>${usuario.altura}</td>
-                <td>${usuario.dataNascimento}</td>
-                <td>${usuario.tipoUsuario.nome}</td>
+                <td class="text-white">${usuario.nome}</td>
+                <td class="text-white">${usuario.cpf}</td>
+                <td class="text-white">${usuario.email}</td>
+                <td class="text-white">${usuario.sexo}</td>
+                <td class="text-white">${usuario.peso}</td>
+                <td class="text-white">${usuario.altura}</td>
+                <td class="text-white">${usuario.dataNascimento}</td>
+                <td class="text-white">${usuario.tipoUsuario.nome}</td>
             `
     </script>
 
