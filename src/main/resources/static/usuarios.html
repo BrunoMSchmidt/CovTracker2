@@ -30,7 +30,7 @@
                        data-bs-toggle="dropdown" aria-expanded="false">
                         Cadastros
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <ul class="dropdown-menu-dark dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="cadastroUsuario.html">Usuário</a></li>
                         <li><a class="dropdown-item" href="cadastroEmpresa.html">Empresa</a></li>
                     </ul>
@@ -40,7 +40,7 @@
                        data-bs-toggle="dropdown" aria-expanded="false">
                         Dados
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <ul class="dropdown-menu-dark dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="usuarios.html">Usuários</a></li>
                     </ul>
                   </li>
@@ -115,13 +115,13 @@
                     function(response){
                         $("#tabelaresultados > tbody > tr").remove();
                         for (var i = 0; i < response.length; i++){
-                            $('#tabelaresultados > tbody').append('<tr><td>' + 
-                                    response[i].nome + '</td><td>' + 
-                                    response[i].cpf + '</td><td>' +		
-                                    response[i].email + '</td><td>' +	
-                                    response[i].sexo + '</td><td>' +
-                                    response[i].peso + '</td><td>' +
-                                    response[i].altura + '</td><td>'
+                            $('#tabelaresultados > tbody').append('<tr><td class="text-white">' + 
+                                    response[i].nome + '</td><td class="text-white">' + 
+                                    response[i].cpf + '</td><td class="text-white">' +		
+                                    response[i].email + '</td><td class="text-white">' +	
+                                    response[i].sexo + '</td><td class="text-white">' +
+                                    response[i].peso + '</td><td class="text-white">' +
+                                    response[i].altura + '</td><td class="text-white">'
                             )
                         }
                     }
