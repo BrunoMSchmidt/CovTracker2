@@ -7,10 +7,7 @@ import com.covtracker.covtracker.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/api")
@@ -24,6 +21,11 @@ public class AutenticacaoController {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+    @GetMapping(path = "/autenticar/teste")
+    public String testeAutenticacao(){
+        return "autenticado";
+    }
 
     @PostMapping("/autenticar")
     public AuthResponse generateToken(@RequestBody AuthRequest authRequest) throws Exception {

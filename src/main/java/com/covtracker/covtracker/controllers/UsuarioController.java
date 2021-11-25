@@ -34,7 +34,7 @@ public class UsuarioController {
 
     @GetMapping(path = "/usuarios/findByName/{name}")
     public List<Usuario> getByCpf(@PathVariable() String name) {
-        return this.usuarioRepository.findByNomeContaining(name);
+        return this.usuarioRepository.findByNomeContainingIgnoreCase(name);
     }
 
     @PostMapping(path = "/usuario")
