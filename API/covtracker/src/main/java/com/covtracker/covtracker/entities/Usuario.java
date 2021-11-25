@@ -58,4 +58,7 @@ public class Usuario {
     @JoinColumn(name = "codend", nullable = false)
     private Endereco endereco;
 
+    @OneToMany(orphanRemoval = true)
+    private List<UsuarioTelefone> usuarioTelefones;
+
 }

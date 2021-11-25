@@ -17,9 +17,9 @@ import java.util.Objects;
 public class UsuarioTelefoneId implements Serializable {
     private static final long serialVersionUID = 6726915268952800012L;
     @Column(name = "cpfusu", nullable = false, precision = 11)
-    private BigDecimal cpfusu;
+    private BigDecimal cpf;
     @Column(name = "telpac", nullable = false, precision = 11)
-    private BigDecimal telpac;
+    private BigDecimal telefone;
 
 
     @Override
@@ -27,12 +27,12 @@ public class UsuarioTelefoneId implements Serializable {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
         UsuarioTelefoneId entity = (UsuarioTelefoneId) o;
-        return Objects.equals(this.telpac, entity.telpac) &&
-                Objects.equals(this.cpfusu, entity.cpfusu);
+        return Objects.equals(this.telefone, entity.telefone) &&
+                Objects.equals(this.telefone, entity.cpf);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(telpac, cpfusu);
+        return Objects.hash(telefone, cpf);
     }
 }

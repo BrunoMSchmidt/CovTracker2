@@ -11,5 +11,5 @@ import java.util.List;
 @Repository()
 public interface UsuarioRepository extends JpaRepository<Usuario, BigDecimal> {
     Usuario findByEmail(String email);
-    List<Usuario> findByNomeContaining(String texto);
+    List<Usuario> findByNomeContainingIgnoreCase(String texto);
 }
