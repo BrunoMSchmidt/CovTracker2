@@ -30,7 +30,9 @@
 }
 
 .dropdown-item:focus{
-    color: #94ed8888 !important;
+    background-color: #94ed8888 !important;
+    border-color: #94ed883f !important;
+    color: white !important;
 }
 
 .btn-lg:focus {
