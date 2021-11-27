@@ -54,11 +54,17 @@ public class Usuario {
     @JoinColumn(name = "codtipusu", nullable = false)
     private TipoUsuario tipoUsuario;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, cascade=CascadeType.ALL)
     @JoinColumn(name = "codend", nullable = false)
     private Endereco endereco;
 
-    @OneToMany(orphanRemoval = true)
+    @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL)
     private List<UsuarioTelefone> usuarioTelefones;
+
+    @Column(name = "situsu", length = 30)
+    private String situsu;
+
+    @Column(name = "obsusu")
+    private String obsusu;
 
 }

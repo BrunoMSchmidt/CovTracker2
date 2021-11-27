@@ -3,6 +3,7 @@ package com.covtracker.covtracker.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Table(name = "endereco")
 @Entity
@@ -29,8 +30,10 @@ public class Endereco {
     @JoinColumn(name = "codcid", nullable = false)
     private Cidade cidade;
 
-    @ManyToOne
-    @JoinColumn(name = "codbai")
-    private Bairro bairro;
+    @Column(name = "cepend", nullable = false, precision = 8)
+    private BigDecimal cep;
+
+    @Column(name = "baiend", length = 40)
+    private String bairro;
 
 }
