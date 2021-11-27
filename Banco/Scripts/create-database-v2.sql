@@ -1,12 +1,3 @@
-CREATE TABLE bairro (
-  codbai SERIAL NOT NULL, 
-  nombai varchar(40) NOT NULL, 
-  cepbai numeric(8, 0) NOT NULL, 
-  PRIMARY KEY (codbai));
-COMMENT ON TABLE bairro IS 'Cadastro do bairro';
-COMMENT ON COLUMN bairro.codbai IS 'C�digo do bairro';
-COMMENT ON COLUMN bairro.nombai IS 'Nome do bairro';
-COMMENT ON COLUMN bairro.cepbai IS 'Cep do bairro /ou cidade';
 CREATE TABLE cidade (
   codcid SERIAL NOT NULL, 
   nomcid varchar(40) NOT NULL, 
@@ -44,13 +35,16 @@ CREATE TABLE endereco (
   numend varchar(8), 
   comend varchar(40), 
   codcid int4 NOT NULL, 
-  codbai int4, 
+  cepend numeric(8, 0) not NULL,
+  baiend varchar(40),
   PRIMARY KEY (codend));
 COMMENT ON TABLE endereco IS 'Cadastro do endere�o';
 COMMENT ON COLUMN endereco.codend IS 'C�digo do endereco';
 COMMENT ON COLUMN endereco.ruaend IS 'Rua do endere�o';
 COMMENT ON COLUMN endereco.numend IS 'N�mero do endere�o';
 COMMENT ON COLUMN endereco.comend IS 'Complemento do endere�o';
+COMMENT ON COLUMN endereco.cepend IS 'Cep do endereco';
+COMMENT ON COLUMN endereco.baiend IS 'Bairro do endereco';
 CREATE TABLE estado (
   sigest varchar(2) NOT NULL, 
   nomest varchar(40) NOT NULL UNIQUE, 
@@ -102,7 +96,9 @@ CREATE TABLE usuario (
   funempusu varchar(40) NOT NULL, 
   cnpjemp   numeric(14, 0) NOT NULL, 
   codtipusu int4 NOT NULL, 
-  codend    int4 NOT NULL, 
+  codend    int4 NOT NULL,
+  situsu varchar(30),
+  obsusu varchar(255),
   PRIMARY KEY (cpfusu));
 COMMENT ON TABLE usuario IS 'Cadastro do usu�rio';
 COMMENT ON COLUMN usuario.cpfusu IS 'CPF do usu�rio';
@@ -114,6 +110,8 @@ COMMENT ON COLUMN usuario.altusu IS 'Altura do usuario em metros';
 COMMENT ON COLUMN usuario.funempusu IS 'Fun��o do usu�rio na empresa';
 COMMENT ON COLUMN usuario.emausu IS 'Email do usuario';
 COMMENT ON COLUMN usuario.senusu IS 'Senha do usuario';
+COMMENT ON COLUMN usuario.situsu IS 'Situacao do usuario("positivado", "em observacao...")';
+COMMENT ON COLUMN usuario.obsusu IS 'Observacoes';
 CREATE TABLE usuario_comorbidade (
   cpfusu numeric(11, 0) NOT NULL, 
   codcom int4 NOT NULL, 
@@ -166,5 +164,4 @@ ALTER TABLE teste ADD CONSTRAINT tes_cpfusu_fk FOREIGN KEY (cpfusu) REFERENCES u
 ALTER TABLE usuario_vacina ADD CONSTRAINT vac_codvac_fk FOREIGN KEY (codvac) REFERENCES vacina (codvac);
 ALTER TABLE usuario_vacina ADD CONSTRAINT vac_cpfusu_fk FOREIGN KEY (cpfusu) REFERENCES usuario (cpfusu);
 ALTER TABLE endereco ADD CONSTRAINT end_codcid_fk FOREIGN KEY (codcid) REFERENCES cidade (codcid);
-ALTER TABLE endereco ADD CONSTRAINT end_codbai_fk FOREIGN KEY (codbai) REFERENCES bairro (codbai);
 

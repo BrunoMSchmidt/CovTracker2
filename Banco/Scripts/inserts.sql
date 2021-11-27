@@ -5636,30 +5636,21 @@ INSERT INTO sintoma (nomsin, crisin) VALUES
 ('Outros sintomas', 1),
 ('Oximetria menor que 94%', 2);
 
-INSERT INTO bairro (nombai, cepbai) VALUES
-('Centro', 89906000),
-('Grápia', 89907000),
-('Estrela', 89900000),
-('Bairro nobre', 89874000),
-('Nova esperança', 89870000),
-('São Luiz', 89801-000),
-('Alvorada', 89896000);
-
-INSERT INTO endereco (ruaend, numend, comend, codcid, codbai) VALUES
-('Avenida das Aves', 65, null, 4598, 1),
-('Rua dos Pombos', 78, null, 4540, null),
-('Avenida São Luiz', 876, null, 776, null),
-('Rua Nobre', 27, null, 888, null),
-('Rua Capão', 3789, null, 458, null),
-('Rua Pedregulho', 2782, null, 4667, 7),
-('Rua João Miguel', 37, null, 4540, null),
-('Avenida das Dores', 278, null, 4540, null),
-('Rua Guilhermino', 55, null, 4479, null),
-('Rua Alberto da Cunha', 1444, null, 4667, 4),
-('Rua Barril', 119, null, 4540, null),
-('Avenida Padre Ernesto', 76, null, 4598, 2),
-('Rua das Missões', 2, null, 4569, 6),
-('Rua dos Coqueiros', 444, null, 4540, null);
+INSERT INTO endereco (ruaend, numend, comend, cepend, baiend, codcid) VALUES
+('Avenida das Aves',      65,   null, 89906000, 'Centro', 4598),
+('Rua dos Pombos',        78,   null, 89907000, 'Grápia',       4540),
+('Avenida São Luiz',      876,  null, 89900000, 'Alvorada',       776),
+('Rua Nobre',             27,   null, 89874000, 'Alvorada',       888),
+('Rua Capão',             3789, null, 89801000, 'São Luiz',       458),
+('Rua Pedregulho',        2782, null, 89900000, 'Alvorada',       4667),
+('Rua João Miguel',       37,   null, 89874000, 'Nova esperança',       4540),
+('Avenida das Dores',     278,  null, 89907000, 'Grápia',       4540),
+('Rua Guilhermino',       55,   null, 89801000, 'Alvorada',       4479),
+('Rua Alberto da Cunha',  1444, null, 89874000, 'Nova esperança',       4667),
+('Rua Barril',            119,  null, 89900000, 'Nova esperança',       4540),
+('Avenida Padre Ernesto', 76,   null, 89874000, 'Alvorada',       4598),
+('Rua das Missões',       2,    null, 89900000, 'Nova esperança',       4569),
+('Rua dos Coqueiros',     444,  null, 89801000, 'Alvorada',       4540);
 
 INSERT INTO empresa (cnpjemp, nomfanemp, razsocemp, telemp, emaemp, areatuemp, codend) VALUES
 (12345678900001, 'Dipães', 'Dipães Lmtd', 49123450001, 'Dipães@email.com', 'Alimentos', 7),
