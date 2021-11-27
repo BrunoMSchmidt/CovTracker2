@@ -53,7 +53,7 @@ function submitForm() {
     },
   };
 
-  fetch('http://localhost:8082/api/usuario', {
+  fetch('/api/usuario', {
     method: 'POST',
     headers: {
       Accept: 'application/json, text/plain, */*',
@@ -77,7 +77,7 @@ function submitForm() {
       }
 
       if (telefones.length > 0) {
-        fetch('http://localhost:8082/api/usuariosTelefones', {
+        fetch('/api/usuariosTelefones', {
           method: 'POST',
           headers: {
             Accept: 'application/json, text/plain, */*',
@@ -96,7 +96,7 @@ const { token } = JSON.parse(localStorage.getItem('usuario'));
 //##### REQUISIÇÕES ######
 
 // TIPOS DE USUARIOS
-fetch('http://localhost:8082/api/tiposUsuario', {
+fetch('/api/tiposUsuario', {
   headers: {
     Accept: 'application/json, text/plain, */*',
     'Content-Type': 'application/json',
@@ -116,7 +116,7 @@ fetch('http://localhost:8082/api/tiposUsuario', {
 });
 
 // EMPRESAS
-fetch('http://localhost:8082/api/empresas', {
+fetch('/api/empresas', {
   headers: {
     Accept: 'application/json, text/plain, */*',
     'Content-Type': 'application/json',
