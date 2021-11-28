@@ -1,5 +1,5 @@
-const usuario = JSON.parse(localStorage.getItem("usuario"));
-if(!usuario){
+const usuarioFromLocalStorage = JSON.parse(localStorage.getItem("usuario"));
+if (!usuarioFromLocalStorage) {
   redirectToLoginAndClearStorage();
 } else {
   fetch('api/autenticar/teste', {
@@ -7,10 +7,10 @@ if(!usuario){
     headers: {
       Accept: 'application/json, text/plain, */*',
       'Content-Type': 'application/json',
-      Authorization: 'Bearer ' + usuario.token,
+      Authorization: 'Bearer ' + usuarioFromLocalStorage.token,
     },
-  }).then(res => {
-    if(res.status == 403 || res.status == 500){
+  }).then((res) => {
+    if (res.status == 403 || res.status == 500) {
       redirectToLoginAndClearStorage();
     }
   });

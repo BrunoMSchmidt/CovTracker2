@@ -1,64 +1,74 @@
-.titulo{
-    text-align: center;
-    padding: 15px;
+html,
+body {
+  height: 100%;
 }
 
-.formulario{
-    margin: auto;
-    /* max-width: 900px !important; */
+* {
+  box-sizing: border-box;
 }
 
-#logo{
-    height: 55px;
-    margin-left: 35px;
-    margin-right: 35px;
+.titulo {
+  text-align: center;
+  padding: 15px;
 }
 
-#img-user{
-    height: 40px !important;
-    /* margin-left: 35px;
+.formulario {
+  margin: auto;
+  /* max-width: 900px !important; */
+}
+
+#logo {
+  height: 55px;
+  margin-left: 35px;
+  margin-right: 35px;
+}
+
+#img-user {
+  height: 40px !important;
+  /* margin-left: 35px;
     margin-right: 5px; */
 }
 
-.nav-link{
-    color: #94ed8888 !important;
+.nav-link {
+  color: #94ed8888 !important;
 }
 
-.btn-primary{
-    background-color: #94ed8888 !important;
-    border-color: #94ed883f !important;
+.btn-primary {
+  background-color: #94ed8888 !important;
+  border-color: #94ed883f !important;
 }
 
-.dropdown-item:focus{
-    background-color: #94ed8888 !important;
-    border-color: #94ed883f !important;
-    color: white !important;
+.dropdown-item:focus {
+  background-color: #94ed8888 !important;
+  border-color: #94ed883f !important;
+  color: white !important;
 }
 
 .btn-lg:focus {
-    box-shadow: 0px 0px 15px  #94ed883f !important;
-  }
-
-.container{
-    box-shadow: 0px 0px 3px #ccc;
-    min-height: auto;
-    padding: 20px;    
-    margin-bottom: 5px;
-    margin-top: 5px;
-    background-color: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(5px);
-    border-radius: 10px;
+  box-shadow: 0px 0px 15px #94ed883f !important;
 }
 
-body{
-    min-height: 100vh;
-    max-width: 100vw;
-    background: url("assets/familia-feliz-menor.jpg") !important;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
+.container {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  min-height: auto;
+  padding: 20px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  background-color: #252525ec;
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
 }
 
-.text-white{
-    color: white !important;
+body {
+  min-height: 100vh;
+  max-width: 100vw;
+  background: url('assets/familia-feliz-menor.jpg') !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center top !important;
+}
+
+.text-white {
+  color: white !important;
 }

@@ -1,3 +1,5 @@
+const { token } = JSON.parse(localStorage.getItem('usuario'));
+
 const $nomeCompletoInput = document.querySelector('input[name="nome"');
 const $cpfInput = document.querySelector('input[name="cpf"');
 const $dataNascimento = document.querySelector('input[name="dataNascimento"');
@@ -9,7 +11,7 @@ const $sexoSelect = document.querySelector('select[name="sexo"');
 const $tipoUsuarioSelect = document.querySelector('select[name="tipoUsuario"');
 const $empresaSelect = document.querySelector('select[name="empresa"');
 const $funcaoEmpresaInput = document.querySelector(
-  'input[name="funcaoEmpresa"'
+  'input[name="funcaoEmpresa"]'
 );
 const $ruaInput = document.querySelector('input[name="rua"');
 const $numeroInput = document.querySelector('input[name="numero"');
@@ -91,8 +93,6 @@ function submitForm() {
   });
 }
 
-const { token } = JSON.parse(localStorage.getItem('usuario'));
-
 //##### REQUISIÇÕES ######
 
 // TIPOS DE USUARIOS
@@ -161,7 +161,6 @@ fetch('/api/estados', {
 $estadoSelect.addEventListener('change', ({ target: { value: sigla } }) =>
   fetchCidades(sigla)
 );
-
 function fetchCidades(sigla = 'AC') {
   console.log(sigla);
   fetch(`/api/cidadeByEstado/${sigla}`, {

@@ -1,0 +1,37 @@
+#usuario-container {
+  color: white;
+}
+
+#loading {
+  margin-block: 150px;
+}
+
+#loading div {
+  color: white;
+}
+
+#usuarioNotFound {
+  display: grid;
+  height: 200px;
+  place-items: center;
+}
+
+#usuarioNotFound h1,
+p {
+  margin: 0 0 5px !important;
+  color: white;
+}
+
+.usuario-card {
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.usuario-card img {
+  height: 75px;
+  flex: 0;
+}
