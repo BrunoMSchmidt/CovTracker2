@@ -4,14 +4,14 @@ CREATE TABLE cidade (
   sigest varchar(2) NOT NULL, 
   PRIMARY KEY (codcid));
 COMMENT ON TABLE cidade IS 'Cadastro da cidade';
-COMMENT ON COLUMN cidade.codcid IS 'C�digo da cidade';
+COMMENT ON COLUMN cidade.codcid IS 'Codigo da cidade';
 COMMENT ON COLUMN cidade.nomcid IS 'Nome da cidade';
 CREATE TABLE comorbidade (
   codcom SERIAL NOT NULL, 
   nomcom varchar(100) NOT NULL UNIQUE, 
   PRIMARY KEY (codcom));
 COMMENT ON TABLE comorbidade IS 'Cadastro de comorbidades';
-COMMENT ON COLUMN comorbidade.codcom IS 'C�digo da comorbidade';
+COMMENT ON COLUMN comorbidade.codcom IS 'Codigo da comorbidade';
 COMMENT ON COLUMN comorbidade.nomcom IS 'Nome da comorbidade';
 CREATE TABLE empresa (
   cnpjemp   numeric(14, 0) NOT NULL, 
@@ -25,10 +25,10 @@ CREATE TABLE empresa (
 COMMENT ON TABLE empresa IS 'empresa Responsavel pelo paciente';
 COMMENT ON COLUMN empresa.cnpjemp IS 'CNPJ da empresa';
 COMMENT ON COLUMN empresa.nomfanemp IS 'Nome Fantasia da empresa';
-COMMENT ON COLUMN empresa.razsocemp IS 'Raz�o Social da empresa';
+COMMENT ON COLUMN empresa.razsocemp IS 'Razao Social da empresa';
 COMMENT ON COLUMN empresa.telemp IS 'Cadastro do telefone da empresa';
 COMMENT ON COLUMN empresa.emaemp IS 'Email da empresa';
-COMMENT ON COLUMN empresa.areatuemp IS '�rea de atua��o da empresa';
+COMMENT ON COLUMN empresa.areatuemp IS 'Area de atuacao da empresa';
 CREATE TABLE endereco (
   codend SERIAL NOT NULL, 
   ruaend varchar(40) NOT NULL, 
@@ -38,11 +38,11 @@ CREATE TABLE endereco (
   cepend numeric(8, 0) not NULL,
   baiend varchar(40),
   PRIMARY KEY (codend));
-COMMENT ON TABLE endereco IS 'Cadastro do endere�o';
-COMMENT ON COLUMN endereco.codend IS 'C�digo do endereco';
-COMMENT ON COLUMN endereco.ruaend IS 'Rua do endere�o';
-COMMENT ON COLUMN endereco.numend IS 'N�mero do endere�o';
-COMMENT ON COLUMN endereco.comend IS 'Complemento do endere�o';
+COMMENT ON TABLE endereco IS 'Cadastro do endereco';
+COMMENT ON COLUMN endereco.codend IS 'Codigo do endereco';
+COMMENT ON COLUMN endereco.ruaend IS 'Rua do endereco';
+COMMENT ON COLUMN endereco.numend IS 'Numero do endere�o';
+COMMENT ON COLUMN endereco.comend IS 'Complemento do endereco';
 COMMENT ON COLUMN endereco.cepend IS 'Cep do endereco';
 COMMENT ON COLUMN endereco.baiend IS 'Bairro do endereco';
 CREATE TABLE estado (
@@ -56,16 +56,16 @@ CREATE TABLE orientacao (
   codori SERIAL NOT NULL, 
   desori varchar(255) NOT NULL, 
   PRIMARY KEY (codori));
-COMMENT ON TABLE orientacao IS 'Cadastro de orienta��es';
-COMMENT ON COLUMN orientacao.codori IS 'C�digo da orienta��o';
-COMMENT ON COLUMN orientacao.desori IS 'Descri��o da orienta��o';
+COMMENT ON TABLE orientacao IS 'Cadastro de orientacoes';
+COMMENT ON COLUMN orientacao.codori IS 'Codigo da orientacao';
+COMMENT ON COLUMN orientacao.desori IS 'Descricao da orientacao';
 CREATE TABLE sintoma (
   codsin SERIAL NOT NULL, 
   nomsin varchar(30) NOT NULL UNIQUE, 
   crisin int4 NOT NULL, 
   PRIMARY KEY (codsin));
 COMMENT ON TABLE sintoma IS 'Cadastro do sintoma';
-COMMENT ON COLUMN sintoma.codsin IS 'C�digo do sintoma';
+COMMENT ON COLUMN sintoma.codsin IS 'Codigo do sintoma';
 COMMENT ON COLUMN sintoma.nomsin IS 'Nome do sintoma';
 COMMENT ON COLUMN sintoma.crisin IS 'Criticidade do sintoma (1 = Baixa, 2 = M�dia, 3 = Alta)';
 CREATE TABLE teste (
@@ -75,15 +75,15 @@ CREATE TABLE teste (
   cpfusu numeric(11, 0) NOT NULL, 
   PRIMARY KEY (codtes));
 COMMENT ON TABLE teste IS 'Cadastro do teste de covid.';
-COMMENT ON COLUMN teste.codtes IS 'C�digo do teste';
+COMMENT ON COLUMN teste.codtes IS 'Codigo do teste';
 COMMENT ON COLUMN teste.restes IS 'Resultado do teste de covid. (P = Positivo, N = Negativo)';
-COMMENT ON COLUMN teste.dattes IS 'Data da realiza��o do teste de covid';
+COMMENT ON COLUMN teste.dattes IS 'Data da realizacao do teste de covid';
 CREATE TABLE tipo_usuario (
   codtipusu SERIAL NOT NULL, 
   nomtipusu varchar(30) NOT NULL UNIQUE, 
   PRIMARY KEY (codtipusu));
-COMMENT ON COLUMN tipo_usuario.codtipusu IS 'C�digo do tipo de usu�rio';
-COMMENT ON COLUMN tipo_usuario.nomtipusu IS 'Nome do tipo de usu�rio (Paciente, Administrador...)';
+COMMENT ON COLUMN tipo_usuario.codtipusu IS 'Codigo do tipo de usuario';
+COMMENT ON COLUMN tipo_usuario.nomtipusu IS 'Nome do tipo de usuario (Paciente, Administrador...)';
 CREATE TABLE usuario (
   cpfusu    numeric(11, 0) NOT NULL, 
   nomusu    varchar(60) NOT NULL, 
@@ -100,14 +100,14 @@ CREATE TABLE usuario (
   situsu varchar(30),
   obsusu varchar(255),
   PRIMARY KEY (cpfusu));
-COMMENT ON TABLE usuario IS 'Cadastro do usu�rio';
-COMMENT ON COLUMN usuario.cpfusu IS 'CPF do usu�rio';
-COMMENT ON COLUMN usuario.nomusu IS 'Nome do Usu�rio.';
+COMMENT ON TABLE usuario IS 'Cadastro do usuario';
+COMMENT ON COLUMN usuario.cpfusu IS 'CPF do usuario';
+COMMENT ON COLUMN usuario.nomusu IS 'Nome do Usuario.';
 COMMENT ON COLUMN usuario.datnasusu IS 'Data de nascimento do usuario.';
-COMMENT ON COLUMN usuario.sexusu IS 'Sexo do usu�rio: (M = Masculino, F = Feminino).';
+COMMENT ON COLUMN usuario.sexusu IS 'Sexo do usuario: (M = Masculino, F = Feminino).';
 COMMENT ON COLUMN usuario.pesusu IS 'Peso do usuario';
 COMMENT ON COLUMN usuario.altusu IS 'Altura do usuario em metros';
-COMMENT ON COLUMN usuario.funempusu IS 'Fun��o do usu�rio na empresa';
+COMMENT ON COLUMN usuario.funempusu IS 'Funcao do usuario na empresa';
 COMMENT ON COLUMN usuario.emausu IS 'Email do usuario';
 COMMENT ON COLUMN usuario.senusu IS 'Senha do usuario';
 COMMENT ON COLUMN usuario.situsu IS 'Situacao do usuario("positivado", "em observacao...")';
@@ -124,21 +124,21 @@ CREATE TABLE usuario_sintoma (
   datfinsin date, 
   PRIMARY KEY (cpfusu, codsin));
 COMMENT ON TABLE usuario_sintoma IS 'Relacionamento entre Paciente e sintoma';
-COMMENT ON COLUMN usuario_sintoma.intsin IS 'Intensidade do sintoma (1 = Baixa, 2 = M�dia, 3 = Alta)';
-COMMENT ON COLUMN usuario_sintoma.datinisin IS 'Data de in�cio do sintoma';
+COMMENT ON COLUMN usuario_sintoma.intsin IS 'Intensidade do sintoma (1 = Baixa, 2 = Media, 3 = Alta)';
+COMMENT ON COLUMN usuario_sintoma.datinisin IS 'Data de inicio do sintoma';
 COMMENT ON COLUMN usuario_sintoma.datfinsin IS 'Data final do sintoma';
 CREATE TABLE usuario_telefone (
   cpfusu numeric(11, 0) NOT NULL, 
   telpac numeric(11, 0) NOT NULL, 
   PRIMARY KEY (cpfusu, telpac));
-COMMENT ON TABLE usuario_telefone IS 'Cadastro de telefones do usu�rio.';
+COMMENT ON TABLE usuario_telefone IS 'Cadastro de telefones do usuario.';
 COMMENT ON COLUMN usuario_telefone.telpac IS 'Telefone do paciente';
 CREATE TABLE vacina (
   codvac SERIAL NOT NULL, 
   nomvac varchar(30) NOT NULL UNIQUE, 
   PRIMARY KEY (codvac));
 COMMENT ON TABLE vacina IS 'Cadastro da vacina';
-COMMENT ON COLUMN vacina.codvac IS 'C�digo da vacina';
+COMMENT ON COLUMN vacina.codvac IS 'Codigo da vacina';
 COMMENT ON COLUMN vacina.nomvac IS 'Nome da vacina';
 CREATE TABLE usuario_vacina (
   codusuvac serial not null,
@@ -147,9 +147,9 @@ CREATE TABLE usuario_vacina (
   codvac    int4 NOT NULL, 
   cpfusu    numeric(11, 0) NOT NULL, 
   PRIMARY KEY (codusuvac));
-COMMENT ON TABLE usuario_vacina IS 'Cadastro da vacina��o';
-COMMENT ON COLUMN usuario_vacina.datusuvac IS 'Data da vacina��o';
-COMMENT ON COLUMN usuario_vacina.dosusuvac IS 'Dose da vacina��o (1 ou 2)';
+COMMENT ON TABLE usuario_vacina IS 'Cadastro da vacinacao';
+COMMENT ON COLUMN usuario_vacina.datusuvac IS 'Data da vacinacao';
+COMMENT ON COLUMN usuario_vacina.dosusuvac IS 'Dose da vacinacao (1 ou 2)';
 ALTER TABLE usuario_sintoma ADD CONSTRAINT ususin_codsin_fk FOREIGN KEY (codsin) REFERENCES sintoma (codsin);
 ALTER TABLE usuario_comorbidade ADD CONSTRAINT usucom_codcom_fk FOREIGN KEY (codcom) REFERENCES comorbidade (codcom);
 ALTER TABLE usuario_telefone ADD CONSTRAINT usutel_cpfusu_fk FOREIGN KEY (cpfusu) REFERENCES usuario (cpfusu);
