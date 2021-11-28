@@ -18,6 +18,8 @@
 </head>
 
 <body>
+
+  <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.html"><img src="assets/logo_transparent-CovTracker.png" id="logo"></a>
@@ -68,11 +70,9 @@
           <li><a class="dropdown-item" onclick="deslogin()">Deslogin</a></li>
         </ul>
       </div>
-
-
-
     </div>
   </nav>
+  <!-- FIM NAVBAR -->
 
   <form class="container" id="form-cadastro-usuarios">
     <div class="container-sm formulario">
@@ -84,7 +84,7 @@
       <div>
         <h4 class="text-white">Dados pessoais</h4>
         <div class="row">
-          <div class="col">
+          <div class="col-lg-12">
             <div class="form-floating mb-2">
               <input type="text" class="form-control" name="nome" placeholder=" ">
               <label for="nome">Nome completo:</label>
@@ -94,14 +94,14 @@
 
         <div class="row">
 
-          <div class="col">
+          <div class="col-md-12 col-lg-6">
             <div class="form-floating mb-2">
               <input type="text" class="form-control" name="cpf" placeholder="000.000.000-00">
               <label for="cpf">CPF:</label>
             </div>
           </div>
 
-          <div class="col">
+          <div class="col-md-12 col-lg-6">
             <div class="form-floating mb-2">
               <input type="date" class="form-control" name="dataNascimento" placeholder=" ">
               <label for="dataNascimento">Data de nascimento:</label>
@@ -112,14 +112,14 @@
 
         <div class="row">
 
-          <div class="col">
+          <div class="col-md-12 col-lg-6">
             <div class="form-floating mb-2">
               <input type="text" class="form-control" name="telefone1" placeholder="(00) 0000-0000">
               <label for="telefone1">Telefone 1:</label>
             </div>
           </div>
 
-          <div class="col">
+          <div class="col-md-12 col-lg-6">
             <div class="form-floating mb-2">
               <input type="text" class="form-control" name="telefone2" placeholder="(00) 0000-0000">
               <label for="telefone2">Telefone 2:</label>
@@ -129,14 +129,14 @@
 
         <div class="row">
 
-          <div class="col">
+          <div class="col-md-12 col-lg-6">
             <div class="form-floating mb-2">
               <input type="number" class="form-control" name="peso" placeholder="000.000.000-00">
               <label for="peso">Peso:</label>
             </div>
           </div>
 
-          <div class="col">
+          <div class="col-md-12 col-lg-6">
             <div class="form-floating mb-2">
               <input type="number" class="form-control" name="altura" placeholder=" ">
               <label for="altura">Altura:</label>
@@ -146,7 +146,7 @@
         </div>
         <div class="row">
 
-          <div class="col">
+          <div class="col-md-12 col-lg-6">
             <div class="form-floating mb-2">
               <select class="form-select" name="sexo" aria-label="Floating label select example"
                 aria-placeholder="lala">
@@ -157,7 +157,7 @@
             </div>
           </div>
 
-          <div class="col">
+          <div class="col-md-12 col-lg-6">
             <div class="form-floating mb-2">
               <select class="form-select" name="tipoUsuario" aria-label="Floating label select example"
                 aria-placeholder="lala">
@@ -169,7 +169,7 @@
         </div>
 
         <div class="row">
-          <div class="col-4">
+          <div class="col-md-12 col-lg-4">
             <div class="form-floating mb-2">
               <select class="form-select" name="empresa" aria-label="Floating label select example"
                 aria-placeholder="lala">
@@ -178,7 +178,7 @@
               <label for="empresa">Selecione a empresa:</label>
             </div>
           </div>
-          <div class="col-8">
+          <div class="col-md-12 col-lg-8">
             <div class="form-floating mb-2">
               <input type="text" class="form-control" name="funcaoEmpresa" placeholder=" ">
               <label for="funcaoEmpresa">Função na empresa:</label>
@@ -197,19 +197,19 @@
         </div>
       </div>
       <div class="row row-cols-auto">
-        <div class="col col-lg-3">
+        <div class="col col-lg-3 col-md-12">
           <div class="form-floating mb-2">
             <input type="text" class="form-control" name="numero" placeholder=" ">
             <label for="numero">Número:</label>
           </div>
         </div>
-        <div class="col col-lg-5">
+        <div class="col col-lg-5 col-md-12">
           <div class="form-floating mb-2">
             <input type="text" class="form-control" name="bairro" placeholder=" ">
             <label for="bairro">Bairro:</label>
           </div>
         </div>
-        <div class="col col-lg-4">
+        <div class="col col-lg-4 col-md-12">
           <div class="form-floating mb-2">
             <input type="text" class="form-control" name="cep" placeholder=" ">
             <label for="cep">CEP:</label>
@@ -217,7 +217,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col">
+        <div class="col-lg-4 col-md-12">
           <div class="form-floating mb-2">
             <select id="estado" class="form-select" name="estado" aria-label="Floating label select example">
 
@@ -225,7 +225,7 @@
             <label for="estado">Selecione um estado:</label>
           </div>
         </div>
-        <div class="col-9">
+        <div class="col-lg-8 col-md-12">
           <div class="form-floating mb-2">
             <select id="cidade" class="form-select" name="cidade" aria-label="Floating label select example"
               aria-placeholder="lala">

@@ -58,9 +58,6 @@ public class Usuario {
     @JoinColumn(name = "codend", nullable = false)
     private Endereco endereco;
 
-    @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL)
-    private List<UsuarioTelefone> usuarioTelefones;
-
     @Column(name = "situsu", length = 30)
     private String situsu;
 
