@@ -1,12 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre nós - CovTracker</title>
+    <title>CovTracker</title>
+
+    <link href="style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
-<body>
-    <img src="assets/ganso.png">
+<body> 
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" >
+        <div class="container-fluid ">
+            <a class="navbar-brand" href="index.html"><img src="assets/logo_transparent-CovTracker.png" id="logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="sobrenos.html">Sobre nós</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Cadastros
+                    </a>
+                    <ul class="dropdown-menu-dark dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="cadastroUsuario.html">Usuário</a></li>
+                        <li><a class="dropdown-item" href="cadastroEmpresa.html">Empresa</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                     data-bs-toggle="dropdown" aria-expanded="false">
+                      Dados
+                  </a>
+                  <ul class="dropdown-menu-dark dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="usuarios.html">Usuários</a></li>
+                  </ul>
+                </li>
+            </ul>
+            </div>
+
+        <div class="d-flex nav-link" id="nome-usuario-menu">
+            
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: transparent; border: none;">
+                <a href="#"><img src="assets/user.png" alt="Imagem usuário" id="img-user"></a>
+            </button>
+            <ul class="dropdown-menu-dark dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="dadosUsuario.html">Meus dados</a></li>
+                <li><a class="dropdown-item" onclick="deslogin()">Deslogin</a></li>
+            </ul>
+        </div>
+
+          
+        
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="formulario text-white">  
+            <div class="titulo">
+                <h1>Sobre nós</h1>
+                <hr>
+            </div>
+            <div>
+                <p>
+                    
+                </p>
+                <div class=" text-white  mb-3" style="max-width: auto">
+                    <div class="row g-0">
+                      <div class="col-md-5">
+                        <img src="assets/Logo-Unoesc-branco.png" class="img-fluid rounded-start" alt="Logo Unoesc" style="padding-left: 15px;">
+                      </div>
+                      <div class="col-md-6 ">
+                        <div class="card-body">
+                            <!-- <h5 class="card-title">Card title</h5> -->
+                            <p class="card-text text-sm-center">
+                                O CovTracker é um sistema de acompanhamento de casos suspeitos de Covid-19, doença causada pelo coronavírus SARS-Cov-2. 
+                                Seu propósito é prover maior controle sobre os casos e, consequentemente, a proliferação da doença, além de gerar dados importantes
+                                para a compreensão dos efeitos da Covid-19 na população, contribuindo assim para o desenvolvimento de protocolos
+                                mais eficazes contra o vírus.
+                                <br><br>
+
+                                Esse sistema foi desenvolvido pelos acadêmicos: Bruno Marlon Schmidt, Marciel Vinicius de Lara, 
+                                Patrick Cherubini Paludo e Sergio Christofoli, alunos do 4º semestre do curso de Ciência da Computação 
+                                na Universidade do Oeste de Santa Catarina (UNOESC), como parte da avaliação final das disciplinas de 
+                                Programação II, Banco de Dados II e Engenharia de Software I, mediadas pelos docentes: Otilia Donato Barbosa,
+                                Roberson Junior Fernandes Alves e Franciele Petry.
+                            </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
