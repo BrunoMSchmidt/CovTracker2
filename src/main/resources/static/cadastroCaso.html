@@ -63,31 +63,48 @@
         </div>
     </nav>
 
+    <!-- Modal SINTOMAS -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Sintomas</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            ...
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
     <form class="container" method="POST" id="form-cadastro-empresas">
         <div class="container-sm formulario">
           <div class="titulo text-white">
-              <h1>Cadastro de empresas</h1>
+              <h1>Cadastro de casos</h1>
               <hr>
           </div>
-
-          <div>
-            <h4 class="text-white">Dados cadastrais</h4>
+        <div>        
             <div class="row">
               <div class="col">
                 <div class="form-floating mb-2">
-                    <input type="text" class="form-control"  name="nomeFantasia" placeholder=" ">
-                    <label for="nomeFantasia">Nome fantasia:</label>
+                    <input type="text" class="form-control"  name="cpf" placeholder=" ">
+                    <label for="cpf">CPF do usuário:</label>
                 </div>
               </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-floating mb-2">
-                        <input type="text" class="form-control" name="razaoSocial" placeholder=" ">
-                        <label for="razaoSocial">Razão social:</label>
-                      </div>
-                </div>
-            </div>
+            
+                <!-- Button trigger modal -->
+                    <button type="button" class="btn-lg btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        Selecione os sintomas
+                    </button>
+                    
+                    
+
             <div class="row">
                 <div class="col">
                     <div class="form-floating mb-2">
