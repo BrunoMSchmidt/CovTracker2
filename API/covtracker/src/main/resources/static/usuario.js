@@ -11,27 +11,6 @@ const $usuarioContent = document.querySelector('#usuario-content');
 const $nome = document.querySelector('#nome');
 const $email = document.querySelector('#email');
 const $idade = document.querySelector('#idade');
-const $cpf = document.querySelector('#cpf');
-const $dataNascimento = document.querySelector('#data-nascimento');
-const $sexo = document.querySelector('#sexo');
-const $peso = document.querySelector('#peso');
-const $altura = document.querySelector('#altura');
-const $situacao = document.querySelector('#situacao');
-const $obs = document.querySelector('#obs')
-const $rua = document.querySelector('#rua')
-const $cidade = document.querySelector('#cidade')
-const $estado = document.querySelector('#estado')
-const $bairro = document.querySelector('#bairro')
-const $cep = document.querySelector('#cep')
-const $num = document.querySelector('#num')
-const $cnpj = document.querySelector('#cnpj');
-const $nomeEmpresa = document.querySelector('#nomeEmpresa')
-const $emailEmpresa = document.querySelector('#emailEmpresa');
-const $razaoSocialEmpresa = document.querySelector('#razaoSocialEmpresa')
-const $telefoneEmpresa = document.querySelector('#telefoneEmpresa')
-const $areaAtuacaoEmpresa = document.querySelector('#areaAtuacaoEmpresa')
-const $funcaoEmpresa = document.querySelector('#funcaoEmpresa')
-
 
 let usuario;
 let usuarioNotFound = false;
@@ -75,66 +54,135 @@ function populaDadosUsuario() {
       1970 +
       ' anos';
 
-    // INFORMAÇÕES DO USUÁRIO
-    $cpf.innerHTML = `CPF: <b>${maskCPF(usuario.cpf.toString().padStart(11, "0"))}</b>`;
-
     let datNas = new Date(usuario.dataNascimento);
-    $dataNascimento.innerHTML = `Data de nascimento: <b>${datNas.getDate()+"/"+datNas.getMonth()+"/"+datNas.getFullYear()}</b>`;
-    if(usuario.sexo === "M" || usuario.sexo === "F"){
-      $sexo.innerHTML = `Sexo: <b>${usuario.sexo === "M"? "Masculino" : "Feminino"}</b>`
-    }
-    $peso.innerHTML = `Peso: <b>${usuario.peso} Kg</b>`;
-    $altura.innerHTML = `Altura: <b>${usuario.altura}m</b>`;
-    if(usuario.situacao?.length){
-      $situacao.innerHTML = `Situação: <b>${usuario.situacao}</b>` 
-    }
-    if(usuario.obs?.length){
-      $obs.innerHTML = `Obs: <b>${usuario.obs}</b>`; 
-    }
 
-    console.log(usuario);
-    // ENDEREÇO
-    if (usuario?.endereco?.rua){
-      $rua.innerHTML = `Rua: <b>${usuario.endereco.rua}</b>`;
-    }
-    if (usuario?.endereco?.cidade?.nome){
-      $cidade.innerHTML = `Cidade: <b>${usuario.endereco.cidade.nome}</b>`
-    }
-    if (usuario?.endereco?.cidade?.estado) {
-      $estado.innerHTML = `Estado: <b>${usuario.endereco.cidade.estado.nome}</b>`
-    }
-    if (usuario?.endereco?.bairro) {
-      $bairro.innerHTML = `Bairro: <b>${usuario.endereco.bairro}</b>`
-    }
-    if (usuario?.endereco?.cep) {
-      $cep.innerHTML = `CEP: <b>${usuario.endereco.cep}</b>`
-    }
-    if (usuario?.endereco?.numero) {
-      $num.innerHTML = `Número: <b>${usuario.endereco.numero}</b>`;
-    }
-    
-    if (usuario?.empresa?.areaDeAtuacao) {
-      console.log("alo");
-      $areaAtuacaoEmpresa.innerHTML = `Área de atuação: <b>${usuario?.empresa.areaDeAtuacao}</b>`;
-    }
-    if (usuario?.empresa?.razaoSocial) {
-      $razaoSocialEmpresa.innerHTML = `Razão Social: <b>${usuario?.empresa?.razaoSocial}</b>`;
-    }
-    if (usuario?.empresa?.nomeFantasia) {
-      $nomeEmpresa.innerHTML = `Nome Fantasia: <b>${usuario?.empresa?.nomeFantasia}</b>`;
-    }
-    if (usuario?.empresa?.cnpj) {
-      $cnpj.innerHTML = `CNPJ: <b>${usuario?.empresa?.cnpj}</b>`;
-    }
-    if (usuario?.empresa?.telefone) {
-      $telefoneEmpresa.innerHTML = `Telefone: <b>${usuario?.empresa?.telefone}</b>`;
-    }
-    if (usuario?.empresa?.email) {
-      $emailEmpresa.innerHTML = `E-mail: <b>${usuario?.empresa?.email}</b>`;
-    }
-    if (usuario?.funcaoEmpresa) {
-      $funcaoEmpresa.innerHTML = `Função do usuário na empresa: <b>${usuario?.funcaoEmpresa}</b>`;
-    }
+    let usuarioInformações = [
+      {
+        descricao: 'Informações do usuário',
+        dados: [
+          {
+            descricao: 'CPF',
+            valor: maskCPF(usuario.cpf.toString().padStart(11, '0')),
+          },
+          {
+            descricao: 'Data de Nascimento',
+            valor:
+              datNas.getDate() +
+              '/' +
+              datNas.getMonth() +
+              '/' +
+              datNas.getFullYear(),
+          },
+          {
+            descricao: 'Sexo',
+            valor:
+              usuario.sexo === 'M'
+                ? 'Masculino'
+                : usuario.sexo === 'F'
+                ? 'Feminino'
+                : 'Indefinido',
+          },
+          {
+            descricao: 'Peso',
+            valor: usuario.peso + ' Kg',
+          },
+          {
+            descricao: 'Altura',
+            valor: usuario.altura + 'm',
+          },
+          {
+            descricao: 'Situação',
+            valor: usuario.situacao,
+          },
+          {
+            descricao: 'Obs',
+            valor: usuario.obs,
+          },
+        ],
+      },
+      {
+        descricao: 'Endereço',
+        dados: [
+          {
+            descricao: 'Rua',
+            valor: usuario.endereco.rua,
+          },
+          {
+            descricao: 'Cidade',
+            valor: usuario.endereco.cidade.nome,
+          },
+          {
+            descricao: 'Estado',
+            valor: usuario.endereco.cidade.estado.nome,
+          },
+          {
+            descricao: 'Bairro',
+            valor: usuario.endereco.bairro,
+          },
+          {
+            descricao: 'CEP',
+            valor: usuario.endereco.cep,
+          },
+          {
+            descricao: 'Número',
+            valor: usuario.endereco.numero,
+          },
+        ],
+      },
+      {
+        descricao: 'Empresa',
+        dados: [
+          {
+            descricao: 'CNPJ',
+            valor: usuario.empresa.cnpj,
+          },
+          {
+            descricao: 'Nome Fantasia',
+            valor: usuario.empresa.nomeFantasia,
+          },
+          {
+            descricao: 'Razão Social',
+            valor: usuario.empresa.razaoSocial,
+          },
+          {
+            descricao: 'Telefone',
+            valor: usuario.empresa.telefone,
+          },
+          {
+            descricao: 'E-mail',
+            valor: usuario.empresa.email,
+          },
+          {
+            descricao: 'Área de atuação',
+            valor: usuario.empresa.areaDeAtuacao,
+          },
+          {
+            descricao: 'Função do usuário na empresa',
+            valor: usuario.funcaoEmpresa,
+          },
+        ],
+      },
+    ];
+
+    let $usuarioDetalhes = document.querySelector("#usuario-detalhes-wrapper");
+
+    usuarioInformações.forEach(informacao => {
+      let header = document.createElement("h3")
+      let headerText = document.createTextNode(informacao.descricao);
+      header.appendChild(headerText);
+
+      let informacaoContainer = document.createElement("div");
+      informacaoContainer.classList.add("usuario-detalhes")
+      informacao.dados.forEach(dado => {
+        if(dado.valor){
+          let paragrafo = document.createElement("p");
+          paragrafo.innerHTML = `${dado.descricao}: <b>${dado.valor}</b>`
+          informacaoContainer.appendChild(paragrafo);
+        }
+      })
+      $usuarioDetalhes.append(header, informacaoContainer);
+    })
+
   }
 }
 

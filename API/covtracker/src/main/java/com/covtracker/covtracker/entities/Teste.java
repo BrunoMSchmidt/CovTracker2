@@ -1,5 +1,6 @@
 package com.covtracker.covtracker.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,6 +23,7 @@ public class Teste {
     @Column(name = "dattes", nullable = false)
     private LocalDate dataTeste;
 
+    @JsonIgnore
     @ManyToOne(optional = false)
     @JoinColumn(name = "cpfusu", nullable = false)
     private Usuario usuario;

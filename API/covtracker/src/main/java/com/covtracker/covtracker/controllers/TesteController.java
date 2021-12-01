@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -18,6 +19,11 @@ public class TesteController {
     @GetMapping(path = "/testes")
     public List<Teste> listAll() {
         return this.testeRepository.findAll();
+    }
+
+    @GetMapping(path = "/testes/findByCpf/{cpf}")
+    public List<Teste> listAllByCpf(@PathVariable BigDecimal cpf) {
+        return this.testeRepository.findAllByUsuarioCpf(cpf);
     }
 
     @GetMapping(path = "/teste/{id}")
