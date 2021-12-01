@@ -18,7 +18,5 @@ grant select
 on cidade, comorbidade, empresa, endereco, estado, orientacao, sintoma, teste, usuario, usuario_comorbidade, usuario_sintoma, usuario_telefone, vacina, usuario_vacina
 to usuario;
 
-grant gerente to administrador;
-
 
 
