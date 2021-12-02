@@ -1,46 +1,193 @@
 import { get, post } from './js/requestUtils.js';
 
-document.querySelector('#nome-usuario-menu').innerHTML = JSON.parse(localStorage.getItem('usuario')).nome;
+document.querySelector('#nome-usuario-menu').innerHTML = JSON.parse(
+  localStorage.getItem('usuario')
+).nome;
 
 const parametros = new URLSearchParams(window.location.search);
 
+// VARIAVEIS DO CARREGAMENTO E HEADER DO USUARIO
 const $usuarioNotFound = document.querySelector('#usuario-not-found');
 const $loading = document.querySelector('#loading');
 const $usuarioContent = document.querySelector('#usuario-content');
-
 const $nome = document.querySelector('#nome');
 const $email = document.querySelector('#email');
 const $idade = document.querySelector('#idade');
+//
+
+const dadosSistema = {
+  comorbidades: [],
+  vacinas: [],
+  sintomas: [],
+};
+
+const usuarioDadosCovid = {
+  vacinas: [],
+  sintomas: [],
+  comorbidades: [],
+  testes: [],
+};
+
+/**
+ * Carrega as >> comorbidades, vacinas e sintomas << e seus ids
+ */
+function loadDadosSistema() {
+  Promise.allSettled([
+    get('/api/comorbidades/').then((res) =>
+      res.status === 200 ? res.json() : null
+    ),
+    get('/api/vacinas/').then((res) =>
+      res.status === 200 ? res.json() : null
+    ),
+    get('/api/sintomas/').then((res) =>
+      res.status === 200 ? res.json() : null
+    ),
+  ]).then((data) => {
+    dadosSistema.comorbidades = data[0].value;
+    dadosSistema.vacinas = data[1].value;
+    dadosSistema.sintomas = data[2].value;
+  });
+}
+loadDadosSistema();
 
 let usuario;
 let usuarioNotFound = false;
 
 if (parametros.has('cpf')) {
-  get(`/api/usuario/${parametros.get('cpf')}`, (res) => {
+  // SE INFORMOU PARAM CPF NA URL
+  get(`/api/usuario/${parametros.get('cpf')}`).then((res) => {
     if (res.status == 200) {
       res.json().then((data) => {
         usuario = data;
         $loading.setAttribute('hidden', '');
         $usuarioContent.removeAttribute('hidden');
-        populaDadosUsuario();
+        populaDadosGeraisUsuario();
+        buscaDadosCovidUsuario();
       });
     } else {
       $loading.setAttribute('hidden', '');
       $usuarioNotFound.removeAttribute('hidden');
       usuarioNotFound = true;
-
-      populaDadosUsuario();
     }
   });
 } else {
-  usuario = usuarioFromLocalStorage;
+  usuario = JSON.parse(localStorage.getItem('usuario'));
   $loading.setAttribute('hidden', '');
   $usuarioContent.removeAttribute('hidden');
 
-  populaDadosUsuario();
+  populaDadosGeraisUsuario();
+  buscaDadosCovidUsuario();
 }
 
-function populaDadosUsuario() {
+/**
+ * Busca os dados relacionados ao covid do usuário(vacinas, testes, comorbidades e sintomas);
+ */
+async function buscaDadosCovidUsuario() {
+  const { cpf } = usuario;
+  if (!cpf) {
+    return;
+  }
+
+  await Promise.allSettled([
+    get(`/api/usuario-sintoma/findByCpf/${cpf}`).then((res) =>
+      res.status === 200 ? res.json() : null
+    ),
+    get(`/api/usuario-vacina/findByCpf/${cpf}`).then((res) =>
+      res.status === 200 ? res.json() : null
+    ),
+    get(`/api/testes/findByCpf/${cpf}`).then((res) =>
+      res.status === 200 ? res.json() : null
+    ),
+    get(`/api/usuario-comorbidade/findByCpf/${cpf}`).then((res) =>
+      res.status === 200 ? res.json() : null
+    ),
+  ]).then((data) => {
+    usuarioDadosCovid.sintomas = data[0].value;
+    usuarioDadosCovid.vacinas = data[1].value;
+    usuarioDadosCovid.testes = data[2].value;
+    usuarioDadosCovid.comorbidades = data[3].value;
+
+    usuarioDadosCovid.sintomas = usuarioDadosCovid.sintomas.map(
+      (sintomaUsuario) => {
+        return {
+          ...sintomaUsuario,
+          nomeSintoma: dadosSistema.sintomas.find(
+            (sintoma) => sintoma.id === sintomaUsuario.idSintoma
+          )?.nome,
+        };
+      }
+    );
+    usuarioDadosCovid.vacinas = usuarioDadosCovid.vacinas.map(
+      (vacinaUsuario) => {
+        console.log(
+          dadosSistema.vacinas.find(
+            (vacina) => vacina.id === vacinaUsuario.idVacina
+          )
+        );
+        return {
+          ...vacinaUsuario,
+          nomeVacina: dadosSistema.vacinas.find(
+            (vacina) => vacina.id === vacinaUsuario.idVacina
+          )?.nome,
+        };
+      }
+    );
+    usuarioDadosCovid.comorbidades = usuarioDadosCovid.comorbidades.map(
+      (comorbidadeUsuario) => {
+        return {
+          ...comorbidadeUsuario,
+          nomeComorbidade: dadosSistema.comorbidades.find(
+            (comorbidade) => comorbidade.id === comorbidadeUsuario.idComorbidade
+          )?.nome,
+        };
+      }
+    );
+
+    console.log(usuarioDadosCovid);
+    populaDadosCovidUsuario();
+  });
+}
+
+function populaDadosCovidUsuario() {
+  const $vacinas = document.querySelector('#vacinas');
+  const $sintomas = document.querySelector('#sintomas');
+  const $testes = document.querySelector('#testes');
+  const $comorbidades = document.querySelector('#comorbidades');
+
+  usuarioDadosCovid.vacinas.forEach((vacina) => {
+    let p = document.createElement("p");
+    let text = document.createTextNode(vacina.nomeVacina)
+    p.appendChild(text)
+    $vacinas.appendChild(p);
+  });
+  usuarioDadosCovid.comorbidades.forEach((comorbidade) => {
+    let p = document.createElement("p");
+    let text = document.createTextNode(comorbidade.nomeComorbidade)
+    p.appendChild(text)
+    $comorbidades.appendChild(p);
+  });
+  usuarioDadosCovid.sintomas.forEach((sintoma) => {
+    let p = document.createElement("p");
+    let text = document.createTextNode(sintoma.nomeSintoma)
+    p.appendChild(text)
+    $sintomas.appendChild(p);
+  });
+  usuarioDadosCovid.testes.forEach((teste) => {
+    let p = document.createElement('p');
+    let text = document.createTextNode(
+      `${teste.resultado === 'N' ? 'Negativo' : 'Positivo'} - ${new Date(
+        teste.dataTeste
+      ).toLocaleDateString()}`
+    );
+    p.appendChild(text);
+    $testes.appendChild(p);
+  });
+}
+
+/**
+ * BUSCA DADOS GERAIS DO USUÁRIO (Informações, endereço, empresa) e pupula na tela
+ */
+function populaDadosGeraisUsuario() {
   if (!usuarioNotFound) {
     console.log(usuario);
 
@@ -164,33 +311,32 @@ function populaDadosUsuario() {
       },
     ];
 
-    let $usuarioDetalhes = document.querySelector("#usuario-detalhes-wrapper");
+    let $usuarioDetalhes = document.querySelector('#usuario-detalhes-wrapper');
 
-    usuarioInformações.forEach(informacao => {
-      let header = document.createElement("h3")
+    usuarioInformações.forEach((informacao) => {
+      let header = document.createElement('h3');
       let headerText = document.createTextNode(informacao.descricao);
       header.appendChild(headerText);
 
-      let informacaoContainer = document.createElement("div");
-      informacaoContainer.classList.add("usuario-detalhes")
-      informacao.dados.forEach(dado => {
-        if(dado.valor){
-          let paragrafo = document.createElement("p");
-          paragrafo.innerHTML = `${dado.descricao}: <b>${dado.valor}</b>`
+      let informacaoContainer = document.createElement('div');
+      informacaoContainer.classList.add('usuario-detalhes');
+      informacao.dados.forEach((dado) => {
+        if (dado.valor) {
+          let paragrafo = document.createElement('p');
+          paragrafo.innerHTML = `${dado.descricao}: <b>${dado.valor}</b>`;
           informacaoContainer.appendChild(paragrafo);
         }
-      })
+      });
       $usuarioDetalhes.append(header, informacaoContainer);
-    })
-
+    });
   }
 }
 
-function maskCPF(cpf){
-    cpf = cpf.replace(/\D/g, '');                    //Remove tudo o que não é dígito
-    cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');       //Coloca um ponto entre o terceiro e o quarto dígitos
-    cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');       //Coloca um ponto entre o terceiro e o quarto dígitos
-                                             //de novo (para o segundo bloco de números)
-    cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2'); //Coloca um hífen entre o terceiro e o quarto dígitos
-    return cpf;
+function maskCPF(cpf) {
+  cpf = cpf.replace(/\D/g, ''); //Remove tudo o que não é dígito
+  cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2'); //Coloca um ponto entre o terceiro e o quarto dígitos
+  cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2'); //Coloca um ponto entre o terceiro e o quarto dígitos
+  //de novo (para o segundo bloco de números)
+  cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2'); //Coloca um hífen entre o terceiro e o quarto dígitos
+  return cpf;
 }
