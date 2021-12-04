@@ -136,10 +136,12 @@ COMMENT ON COLUMN usuario_telefone.telpac IS 'Telefone do paciente';
 CREATE TABLE vacina (
   codvac SERIAL NOT NULL, 
   nomvac varchar(30) NOT NULL UNIQUE, 
+  quadosvac	int4 not null,
   PRIMARY KEY (codvac));
 COMMENT ON TABLE vacina IS 'Cadastro da vacina';
 COMMENT ON COLUMN vacina.codvac IS 'Codigo da vacina';
 COMMENT ON COLUMN vacina.nomvac IS 'Nome da vacina';
+COMMENT ON COLUMN vacina.quadosvac IS 'Quantidade de doses da vacina';
 CREATE TABLE usuario_vacina (
   codusuvac serial not null,
   datusuvac date NOT NULL, 

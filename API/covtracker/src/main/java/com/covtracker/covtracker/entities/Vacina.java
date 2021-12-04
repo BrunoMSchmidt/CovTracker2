@@ -18,6 +18,9 @@ public class Vacina {
     private Integer id;
 
     @Column(name = "nomvac", nullable = false, length = 30)
-    private String nomvac;
+    private String nome;
+
+    @Column(name = "quadosvac", nullable = false)
+    private Integer quantidadeDoses;
 
 }
