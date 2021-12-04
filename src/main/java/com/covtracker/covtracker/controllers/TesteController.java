@@ -1,5 +1,6 @@
 package com.covtracker.covtracker.controllers;
 
+import com.covtracker.covtracker.dto.TesteDTO;
 import com.covtracker.covtracker.entities.Teste;
 import com.covtracker.covtracker.repositories.TesteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -22,8 +24,18 @@ public class TesteController {
     }
 
     @GetMapping(path = "/testes/findByCpf/{cpf}")
-    public List<Teste> listAllByCpf(@PathVariable BigDecimal cpf) {
-        return this.testeRepository.findAllByUsuarioCpf(cpf);
+    public List<TesteDTO> listAllByCpf(@PathVariable BigDecimal cpf) {
+        List<Teste> testes = testeRepository.findAllByUsuarioCpf(cpf);
+        List<TesteDTO> testesDTO = new ArrayList<>();
+        testes.forEach(teste -> {
+            testesDTO.add(new TesteDTO(
+                    teste.getId(),
+                    teste.getUsuario().getCpf(),
+                    teste.getResultado(),
+                    teste.getDataTeste()
+            ));
+        });
+        return testesDTO;
     }
 
     @GetMapping(path = "/teste/{id}")
@@ -34,12 +46,12 @@ public class TesteController {
     }
 
     @PostMapping(path = "/teste")
-    public Teste create(@RequestBody Teste teste){
+    public Teste create(@RequestBody Teste teste) {
         return testeRepository.save(teste);
     }
 
     @PutMapping(path = "/teste/{id}")
-    public ResponseEntity<Teste> update(@PathVariable() Integer id, @RequestBody Teste teste){
+    public ResponseEntity<Teste> update(@PathVariable() Integer id, @RequestBody Teste teste) {
         return testeRepository.findById(id)
                 .map(registro -> {
                     registro.setDataTeste(teste.getDataTeste());
@@ -51,7 +63,7 @@ public class TesteController {
     }
 
     @DeleteMapping(path = "/teste/{id}")
-    public ResponseEntity delete(@PathVariable() Integer id){
+    public ResponseEntity delete(@PathVariable() Integer id) {
         return testeRepository.findById(id)
                 .map(registro -> {
                     testeRepository.deleteById(id);
