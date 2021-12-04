@@ -88,65 +88,60 @@ async function buscaDadosCovidUsuario() {
     return;
   }
 
-  await Promise.allSettled([
+  const data = await Promise.allSettled([
     get(`/api/usuario-sintoma/findByCpf/${cpf}`).then((res) =>
-      res.status === 200 ? res.json() : null
+      res.status === 200 ? res.json() : []
     ),
     get(`/api/usuario-vacina/findByCpf/${cpf}`).then((res) =>
-      res.status === 200 ? res.json() : null
+      res.status === 200 ? res.json() : []
     ),
     get(`/api/testes/findByCpf/${cpf}`).then((res) =>
-      res.status === 200 ? res.json() : null
+      res.status === 200 ? res.json() : []
     ),
     get(`/api/usuario-comorbidade/findByCpf/${cpf}`).then((res) =>
-      res.status === 200 ? res.json() : null
+      res.status === 200 ? res.json() : []
     ),
-  ]).then((data) => {
-    usuarioDadosCovid.sintomas = data[0].value;
-    usuarioDadosCovid.vacinas = data[1].value;
-    usuarioDadosCovid.testes = data[2].value;
-    usuarioDadosCovid.comorbidades = data[3].value;
+  ])
 
-    usuarioDadosCovid.sintomas = usuarioDadosCovid.sintomas.map(
-      (sintomaUsuario) => {
-        return {
-          ...sintomaUsuario,
-          nomeSintoma: dadosSistema.sintomas.find(
-            (sintoma) => sintoma.id === sintomaUsuario.idSintoma
-          )?.nome,
-        };
-      }
-    );
-    usuarioDadosCovid.vacinas = usuarioDadosCovid.vacinas.map(
-      (vacinaUsuario) => {
-        console.log(
-          dadosSistema.vacinas.find(
-            (vacina) => vacina.id === vacinaUsuario.idVacina
-          )
-        );
-        return {
-          ...vacinaUsuario,
-          nomeVacina: dadosSistema.vacinas.find(
-            (vacina) => vacina.id === vacinaUsuario.idVacina
-          )?.nome,
-        };
-      }
-    );
-    usuarioDadosCovid.comorbidades = usuarioDadosCovid.comorbidades.map(
-      (comorbidadeUsuario) => {
-        return {
-          ...comorbidadeUsuario,
-          nomeComorbidade: dadosSistema.comorbidades.find(
-            (comorbidade) => comorbidade.id === comorbidadeUsuario.idComorbidade
-          )?.nome,
-        };
-      }
-    );
+  usuarioDadosCovid.sintomas =        data[0].value;
+  usuarioDadosCovid.vacinas =         data[1].value;
+  usuarioDadosCovid.testes =          data[2].value;
+  usuarioDadosCovid.comorbidades =    data[3].value;
 
-    console.log(usuarioDadosCovid);
-    populaDadosCovidUsuario();
-  });
-}
+  usuarioDadosCovid.sintomas = usuarioDadosCovid.sintomas.map(
+    (sintomaUsuario) => {
+      return {
+        ...sintomaUsuario,
+        nomeSintoma: dadosSistema.sintomas.find(
+          (sintoma) => sintoma.id === sintomaUsuario.idSintoma
+        )?.nome,
+      };
+    }
+  );
+  usuarioDadosCovid.vacinas = usuarioDadosCovid.vacinas.map(
+    (vacinaUsuario) => {
+      return {
+        ...vacinaUsuario,
+        nomeVacina: dadosSistema.vacinas.find(
+          (vacina) => vacina.id === vacinaUsuario.idVacina
+        )?.nome,
+      };
+    }
+  );
+  usuarioDadosCovid.comorbidades = usuarioDadosCovid.comorbidades.map(
+    (comorbidadeUsuario) => {
+      return {
+        ...comorbidadeUsuario,
+        nomeComorbidade: dadosSistema.comorbidades.find(
+          (comorbidade) => comorbidade.id === comorbidadeUsuario.idComorbidade
+        )?.nome,
+      };
+    }
+  );
+
+  console.log(usuarioDadosCovid);
+  populaDadosCovidUsuario();
+};
 
 function populaDadosCovidUsuario() {
   const $vacinas = document.querySelector('#vacinas');
@@ -226,8 +221,8 @@ function populaDadosGeraisUsuario() {
               usuario.sexo === 'M'
                 ? 'Masculino'
                 : usuario.sexo === 'F'
-                ? 'Feminino'
-                : 'Indefinido',
+                  ? 'Feminino'
+                  : 'Indefinido',
           },
           {
             descricao: 'Peso',
