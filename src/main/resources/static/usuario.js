@@ -51,7 +51,7 @@ let modais = {
     cadastrar: {
       inputs: {
         dataFinal: document.querySelector('#input-cadastro-sintoma-data-final'),
-        dataInicio: document.querySelector('#input-editar-sintoma-data-inicio'),
+        dataInicio: document.querySelector('#input-cadastro-sintoma-data-inicio'),
         sintomaId: document.querySelector('#input-cadastro-sintoma-id'),
         intensidade: document.querySelector(
           '#input-cadastro-sintoma-intensidade'
@@ -531,11 +531,13 @@ modais.vacina.cadastrar.actionButton.addEventListener('click', () => {
 
 // MODAL CADASTRAR SINTOMA
 modais.sintoma.cadastrar.actionButton.addEventListener('click', () => {
+  console.log("alo");
   const {
     modalInstance,
     inputs: { sintomaId, dataInicio, dataFinal, intensidade },
   } = modais.sintoma.cadastrar;
   if (sintomaId.value && dataInicio.value && intensidade.value) {
+    console.log("teste");
     let body = {
       id: {
         cpfusu: usuario.cpf,
