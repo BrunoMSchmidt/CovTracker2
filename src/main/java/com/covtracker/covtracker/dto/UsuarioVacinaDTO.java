@@ -14,9 +14,10 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class UsuarioVacinaDTO {
 
+    private Integer id;
     private Integer idVacina;
     private BigDecimal cpfUsuario;
-    private LocalDate datusuvac;
-    private Integer dosusuvac;
+    private LocalDate data;
+    private Integer dose;
 
 }
