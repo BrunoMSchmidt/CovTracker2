@@ -2,6 +2,7 @@ package com.covtracker.covtracker.controllers;
 
 import com.covtracker.covtracker.dto.UsuarioSintomaDTO;
 import com.covtracker.covtracker.entities.UsuarioSintoma;
+import com.covtracker.covtracker.entities.UsuarioSintomaId;
 import com.covtracker.covtracker.repositories.UsuarioSintomaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +31,11 @@ public class UsuarioSintomaController {
     @PutMapping(path = "/usuario-sintoma")
     public UsuarioSintoma update(@RequestBody UsuarioSintoma usuarioSintoma){
         return usuarioSintomaRepository.save(usuarioSintoma);
+    }
+
+    @DeleteMapping(path = "/usuario-sintoma")
+    public void delete(@RequestBody UsuarioSintoma usuarioSintoma){
+        usuarioSintomaRepository.delete(usuarioSintoma);
     }
 
     @GetMapping(path = "/usuario-sintoma/findByCpf/{cpf}")

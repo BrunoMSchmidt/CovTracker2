@@ -35,7 +35,7 @@ public class ComorbidadeController {
     public ResponseEntity<Comorbidade> update(@PathVariable() Integer id, @RequestBody Comorbidade comorbidade){
         return comorbidadeRepository.findById(id)
                 .map(registro -> {
-                    registro.setNomcom(comorbidade.getNomcom());
+                    registro.setNome(comorbidade.getNome());
                     Comorbidade updatedComorbidade = comorbidadeRepository.save(registro);
                     return ResponseEntity.ok().body(updatedComorbidade);
                 }).orElse(ResponseEntity.notFound().build());

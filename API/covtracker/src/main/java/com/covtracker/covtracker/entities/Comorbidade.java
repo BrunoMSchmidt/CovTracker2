@@ -18,6 +18,6 @@ public class Comorbidade {
     private Integer id;
 
     @Column(name = "nomcom", nullable = false, length = 100)
-    private String nomcom;
+    private String nome;
 
 }
