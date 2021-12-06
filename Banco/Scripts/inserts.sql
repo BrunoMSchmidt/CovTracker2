@@ -5597,13 +5597,14 @@ INSERT INTO cidade (codcid, nomcid, sigest) VALUES
 (5563, 'Wanderlândia', 'TO'),
 (5564, 'Xambioá', 'TO');
 
-INSERT INTO vacina (nomvac) VALUES
-('Pfizer'),
-('Astrazeneca'),
-('CoronaVac'),
-('Moderna'),
-('Sputnik'),
-('Covaxin');
+INSERT INTO vacina (nomvac, quadosvac) VALUES
+('Pfizer', 2),
+('Astrazeneca', 2),
+('CoronaVac', 2),
+('Moderna', 2),
+('Sputnik', 2),
+('Covaxin', 2),
+('Jansen', 1);
 
 INSERT INTO comorbidade (nomcom) VALUES
 ('Idade igual ou superior a 60 anos'),
