@@ -17,10 +17,10 @@ public class UsuarioVacina {
     private Integer id;
 
     @Column(name = "datusuvac", nullable = false)
-    private LocalDate datusuvac;
+    private LocalDate data;
 
     @Column(name = "dosusuvac", nullable = false)
-    private Integer dosusuvac;
+    private Integer dose;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "codvac", nullable = false)

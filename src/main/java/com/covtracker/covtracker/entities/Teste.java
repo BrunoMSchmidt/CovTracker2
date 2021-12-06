@@ -23,9 +23,7 @@ public class Teste {
     @Column(name = "dattes", nullable = false)
     private LocalDate dataTeste;
 
-    @JsonIgnore
     @ManyToOne(optional = false)
     @JoinColumn(name = "cpfusu", nullable = false)
     private Usuario usuario;
-
 }

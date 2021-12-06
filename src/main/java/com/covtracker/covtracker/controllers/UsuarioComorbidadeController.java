@@ -1,14 +1,10 @@
 package com.covtracker.covtracker.controllers;
 
 import com.covtracker.covtracker.dto.UsuarioComorbidadeDTO;
-import com.covtracker.covtracker.dto.UsuarioSintomaDTO;
 import com.covtracker.covtracker.entities.UsuarioComorbidade;
 import com.covtracker.covtracker.repositories.UsuarioComorbidadeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -33,5 +29,15 @@ public class UsuarioComorbidadeController {
             usuarioComorbidadeDTOList.add(usuarioComorbidadeDTO);
         });
         return usuarioComorbidadeDTOList;
+    }
+
+    @PostMapping(path = "usuario-comorbidade")
+    public UsuarioComorbidade create(@RequestBody UsuarioComorbidade usuarioComorbidade){
+        return usuarioComorbidadeRepository.save(usuarioComorbidade);
+    }
+
+    @DeleteMapping(path = "usuario-comorbidade")
+    public void delete(@RequestBody UsuarioComorbidade usuarioComorbidade){
+        usuarioComorbidadeRepository.delete(usuarioComorbidade);
     }
 }
