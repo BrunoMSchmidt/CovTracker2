@@ -1,0 +1,9 @@
+com.covtracker.covtracker
+com.covtracker.covtracker.config
+com.covtracker.covtracker.controllers
+com.covtracker.covtracker.dto
+com.covtracker.covtracker.entities
+com.covtracker.covtracker.filter
+com.covtracker.covtracker.repositories
+com.covtracker.covtracker.service
+com.covtracker.covtracker.util
