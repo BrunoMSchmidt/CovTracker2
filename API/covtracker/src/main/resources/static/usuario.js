@@ -621,9 +621,9 @@ function maskCPF(cpf) {
 function formataData(data) {
   if (data instanceof Date) {
     return (
-      data.getDate().toString().padStart(2, '0') +
+      (data.getDate() + 1).toString().padStart(2, '0') +
       '/' +
-      data.getMonth().toString().padStart(2, '0') +
+      (data.getMonth() + 1).toString().padStart(2, '0') +
       '/' +
       data.getFullYear()
     );
